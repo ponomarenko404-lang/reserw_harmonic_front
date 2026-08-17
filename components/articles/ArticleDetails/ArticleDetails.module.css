@@ -1,0 +1,116 @@
+/* .article {
+  width: 100%;
+}
+
+.title {
+  margin-bottom: 16px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1225 / 624;
+  overflow: hidden;
+  border-radius: 0 0 32px 32px;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.content {
+  padding-top: 24px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.content p:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 32px;
+  }
+
+  .content {
+    padding-top: 32px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .title {
+    font-size: 40px;
+  }
+
+  .content {
+    width: 808px;
+  }
+} */
+.article {
+  width: 100%;
+}
+
+.title {
+  margin-bottom: 16px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1225 / 624;
+  overflow: hidden;
+  border-radius: 32px;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.layout {
+  display: grid;
+  gap: 32px;
+  padding-top: 24px;
+}
+
+.content {
+  min-width: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.content p:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.sidebar {
+  min-width: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 32px;
+  }
+
+  .layout {
+    padding-top: 32px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .title {
+    font-size: 40px;
+  }
+
+  .layout {
+    grid-template-columns: minmax(0, 808px) 393px;
+    gap: 24px;
+    align-items: start;
+  }
+}

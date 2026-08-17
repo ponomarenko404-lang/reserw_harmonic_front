@@ -1,0 +1,57 @@
+.filter {
+  display: flex;
+  align-items: center;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+}
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  white-space: nowrap;
+}
+.select {
+  width: 169px;
+  height: 33px;
+  padding: 0 32px 0 12px;
+
+  border: 1px solid var(--green-darker);
+  border-radius: 8px;
+
+  background-color: var(--white);
+  color: var(--black);
+
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.2;
+
+  cursor: pointer;
+  outline: none;
+}
+
+.select:hover {
+  border-color: var(--green);
+}
+
+.select:focus {
+  border-color: var(--green-darker);
+}
+
+@media screen and (min-width: 768px) {
+  .select {
+    width: 169px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .select {
+    width: 169px;
+  }
+}

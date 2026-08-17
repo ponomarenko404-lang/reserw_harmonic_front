@@ -1,0 +1,85 @@
+.userBar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.profileLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--green-darker);
+  transition: opacity 0.2s ease;
+}
+
+.profileLink:hover,
+.profileLink:focus {
+  opacity: 0.8;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--light-green);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.avatarImg {
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.avatarLetter {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 12px;
+  color: var(--green-darker);
+}
+
+.userName {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.2;
+  color: var(--green-darker);
+}
+
+.divider {
+  width: 1px;
+  height: 39px;
+  background-color: var(--green-darker);
+}
+
+.exitBtn {
+  background: transparent;
+  border: none;
+  padding: 0px 0px 4px;
+  width: 52px;
+  height: 28px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--green-darker);
+  transition: color 0.2s ease;
+}
+
+.exitBtn:hover,
+.exitBtn:focus {
+  color: var(--green);
+}
+
+.exitIcon {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  stroke-width: 0.5px;
+  /* Забороняємо контейнеру стискати іконку */
+  flex-shrink: 0;
+}

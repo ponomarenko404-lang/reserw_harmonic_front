@@ -1,0 +1,97 @@
+.header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  background-color: var(--light-green);
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.header :global(.container) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navigation {
+  display: none;
+}
+
+.tabletControls {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.tabletAction {
+  display: none;
+}
+.authItem {
+  display: flex;
+  align-items: center;
+}
+
+/* ==========================
+   TABLET (768px +)
+   ========================== */
+@media screen and (min-width: 768px) {
+  .tabletAction {
+    display: block;
+  }
+}
+
+/* ==========================
+   DESKTOP (1440px +)
+   ========================== */
+@media screen and (min-width: 1440px) {
+  .navigation {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .navList {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .navLink {
+    position: relative;
+    display: inline-block;
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--green-darker);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+  }
+  .navLink::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -4px;
+    left: 0;
+    height: 2px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 200ms ease;
+  }
+
+  .navLink:hover::after,
+  .navLink:focus-visible::after {
+    transform: scaleX(1);
+  }
+  .navLink:hover,
+  .navLink:focus {
+    color: var(--green);
+  }
+  .tabletControls {
+    display: none;
+  }
+}

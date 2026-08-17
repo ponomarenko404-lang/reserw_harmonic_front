@@ -1,0 +1,87 @@
+.logoutModal {
+  width: min(100%, 362px);
+  border-radius: 32px;
+  padding-block: 56px 32px;
+  padding-inline: 16px;
+  background-color: var(--light-green);
+}
+
+.content {
+  text-align: center;
+}
+
+.title {
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.2;
+  color: var(--black);
+}
+
+.description {
+  margin-bottom: 20px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--black);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.primaryButton,
+.secondaryButton {
+  width: 330px;
+  height: 46px;
+  border-radius: 64px;
+  padding-block: 12px;
+  padding-inline: 16px;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.primaryButton {
+  color: var(--white);
+  background-color: var(--green);
+  border: 1px solid transparent;
+}
+
+.secondaryButton {
+  color: var(--black);
+  background-color: transparent;
+  border: 1px solid var(--black);
+}
+
+.primaryButton:disabled,
+.secondaryButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+@media screen and (min-width: 768px) {
+  .logoutModal {
+    width: min(100%, 420px);
+    padding-inline: 32px;
+  }
+
+  .actions {
+    flex-direction: row;
+    justify-content: center;
+    gap: 27px;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 164px;
+    height: 46px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .logoutModal {
+    padding-block: 56px 32px;
+  }
+}

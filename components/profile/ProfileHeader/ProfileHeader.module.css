@@ -1,0 +1,32 @@
+.header {
+  display: grid;
+  gap: 16px;
+  padding: 24px;
+  border-radius: var(--radius-sm);
+  background: var(--light-green);
+}
+.avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: var(--green);
+}
+@media screen and (min-width: 768px) {
+  .header {
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    padding: 32px;
+  }
+}
+.avatar {
+  position: relative;
+  width: 124px;
+  height: 124px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.avatar img {
+  object-fit: cover;
+}

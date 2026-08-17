@@ -1,0 +1,9 @@
+.page { min-height: 100vh; }
+.main { min-height: 70vh; padding-block: 40px 64px; }
+.title { margin-bottom: 24px; font-size: clamp(36px, 8vw, 56px); }
+.profilePlaceholder, .articlesPlaceholder { padding: 24px; border-radius: var(--radius-sm); background: var(--light-green); }
+.profilePlaceholder { min-height: 180px; }
+.articlesPlaceholder { min-height: 320px; }
+.activeTab { margin-block: 24px 12px; color: var(--green-darker); font-weight: 700; }
+@media screen and (min-width: 768px) { .main { padding-block: 64px 88px; } }
+@media screen and (min-width: 1440px) { .main { padding-block: 80px 112px; } }

@@ -1,0 +1,47 @@
+.list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Рівно по 2 в рядок на мобільних від 320px */
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.item {
+  width: 100%;
+}
+
+.emptyState {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 48px 16px;
+  border: 1px dashed var(--light-gray, #d1d5db);
+  border-radius: var(--radius-sm, 8px);
+  background-color: var(--white, #fafafa);
+}
+
+.emptyText {
+  font-size: 15px;
+  color: var(--gray, #6b7280);
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* --- TABLET BREAKPOINT (від 768px) --- */
+@media screen and (min-width: 768px) {
+  .list {
+    grid-template-columns: repeat(2, 1fr); /* Залишається по 2 в рядок на планшеті */
+    gap: 20px;
+  }
+}
+
+/* --- DESKTOP BREAKPOINT (від 1440px) --- */
+@media screen and (min-width: 1440px) {
+  .list {
+    grid-template-columns: repeat(4, 1fr); /* Рівно по 4 в рядок на десктопі */
+    gap: 24px;
+  }
+}

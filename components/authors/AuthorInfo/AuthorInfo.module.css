@@ -1,0 +1,36 @@
+.info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.avatar {
+  width: 124px;
+  height: 124px;
+  flex-shrink: 0;
+  border-radius: 256px;
+  object-fit: cover;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  margin-left: 16px;
+  min-width: 0;
+}
+
+.name {
+  margin: 0;
+  font-weight: 700;
+  font-size: 32px;
+  color: var(--black);
+  margin-bottom: 4px;
+  overflow-wrap: break-word;
+}
+
+.articlesAmount {
+  margin: 0;
+  font-weight: 700;
+  font-size: 18px;
+  color: #000;
+}

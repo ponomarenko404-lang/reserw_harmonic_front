@@ -1,0 +1,57 @@
+.page {
+  width: 100%;
+  background-color: var(--white); 
+}
+
+.main {
+  padding-block: 40px 64px;
+}
+
+.customContainer {
+  padding: 0 !important;
+}
+
+.title {
+  margin-bottom: var(--space-4); /* Використовуємо командні 16px */
+  font-size: clamp(36px, 8vw, 56px);
+  font-weight: 700;
+  color: var(--black); /* Головний колір тексту тексту команди */
+}
+
+.description {
+  margin-bottom: calc(var(--space-4) * 2); /* 32px через змінні */
+  color: var(--gray); /* Змінна --gray підтверджена в globals.css! */
+  line-height: 1.5;
+}
+
+.loadMoreWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: calc(var(--space-4) * 2);
+}
+
+.loadMoreBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 340px; /* Ширина для мобілки */
+  height: 57px; /* Висота з Figma */
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: var(--green);
+  border: 1px solid var(--green);
+  border-radius: 64px; /* Закруглення з Figma */
+  color: var(--white);
+  transition: transform 150ms ease;
+}
+
+.loadMoreBtn:active {
+  transform: scale(0.98);
+}
+
+@media screen and (min-width: 1440px) {
+  .loadMoreBtn {
+    width: 390px; /* Ширина для комп'ютера з Figma */
+  }
+}

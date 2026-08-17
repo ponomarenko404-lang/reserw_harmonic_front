@@ -1,0 +1,143 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  height: 492px;
+  padding: 12px;
+  overflow: hidden;
+  border-radius: 32px;
+  background-color: var(--light-green);
+  justify-content: space-between;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 233px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 24px;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.textContent {
+  width: 100%;
+  color: var(--black);
+  overflow-wrap: anywhere;
+}
+
+.author {
+  height: 22px;
+  overflow: hidden;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.title {
+  display: -webkit-box;
+  height: 70px;
+  overflow: hidden;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: normal;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.description {
+  display: -webkit-box;
+  height: 50px;
+  overflow: hidden;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.55;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.actions {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  width: 100%;
+}
+
+.learnMore {
+  display: flex;
+  min-width: 0;
+  min-height: 40px;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  overflow: hidden;
+  border: 1px solid var(--green-darker);
+  border-radius: var(--radius-pill);
+  color: var(--green-darker);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: normal;
+  white-space: nowrap;
+
+  cursor: pointer;
+  transition:
+    background-color 200ms ease,
+    color 200ms ease,
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.learnMore:hover {
+  background-color: var(--green-darker);
+  border-color: var(--green-darker);
+  color: var(--white);
+}
+
+.learnMore:focus {
+  background-color: #649179;
+  border-color: #649179;
+  color: var(--white);
+  box-shadow: 0 0 0 2px #ffffff;
+}
+
+@media screen and (max-width: 767px) {
+  .card {
+    width: 100%;
+    min-width: 0;
+    height: 492px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .card {
+    width: 340px;
+    height: 492px;
+    padding: 12px;
+    border-radius: 32px;
+  }
+
+  .imageWrapper {
+    width: 316px;
+    height: 233px;
+    border-radius: 24px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .card {
+    width: 100%;
+  }
+
+  .imageWrapper {
+    width: 100%;
+  }
+}

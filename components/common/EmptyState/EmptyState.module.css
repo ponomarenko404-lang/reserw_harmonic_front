@@ -1,0 +1,2 @@
+.state { display: grid; min-height: 240px; place-content: center; gap: 12px; padding: 24px; border-radius: var(--radius-sm); background: var(--light-green); text-align: center; }
+.state p { color: var(--gray); }

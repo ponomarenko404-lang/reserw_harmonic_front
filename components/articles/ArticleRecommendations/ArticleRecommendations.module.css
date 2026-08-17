@@ -1,0 +1,102 @@
+.section {
+  width: 100%;
+}
+
+.panel {
+  padding: 32px 32px 40px;
+  border-radius: 32px;
+  background-color: var(--light-green);
+}
+
+.info {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.info:not(:last-of-type) {
+  margin-bottom: 8px;
+}
+
+.authorLink {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.title {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.list {
+  display: grid;
+  gap: 12px;
+  list-style: none;
+}
+
+.card {
+  display: flex;
+  min-height: 109px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 32px;
+  background-color: var(--white);
+  color: inherit;
+  text-decoration: none;
+}
+
+.cardText {
+  display: grid;
+  gap: 8px;
+}
+
+.cardTitle {
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.cardAuthor {
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.arrow {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  place-items: center;
+  border: 1px solid var(--green-darker);
+  border-radius: 50%;
+  font-size: 22px;
+}
+
+.saveButton {
+  display: flex;
+  height: 57px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  border-radius: 64px;
+  background-color: var(--green);
+  color: var(--white);
+}
+
+.saveButton > button {
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  border: 0;
+  color: inherit;
+}
+
+@media screen and (max-width: 767px) {
+  .panel {
+    padding: 24px 16px 32px;
+  }
+}

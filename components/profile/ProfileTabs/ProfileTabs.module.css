@@ -1,0 +1,2 @@
+.tabs { display: flex; flex-wrap: wrap; gap: 12px; padding-block: 24px; }
+.tabs a { padding: 10px 20px; border: 1px solid var(--green-darker); border-radius: var(--radius-pill); }

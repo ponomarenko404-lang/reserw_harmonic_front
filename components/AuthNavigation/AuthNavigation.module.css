@@ -1,0 +1,129 @@
+.authNav {
+  display: flex;
+  align-items: center;
+}
+
+.unauthenticated {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.authenticated {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.createBtnWrapper {
+  display: none;
+}
+
+/* Компактна авторизаційна кнопка в планшетному Header */
+
+.tabletAuth {
+  display: flex;
+  align-items: center;
+}
+
+.compactButton {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  border: none;
+  border-radius: var(--radius-pill);
+  color: var(--white);
+  background-color: var(--green);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.compactButton:hover,
+.compactButton:focus-visible {
+  color: var(--white);
+  background-color: var(--green-darker);
+}
+
+/* Авторизаційна частина відкритого burger-меню */
+
+.menuAuth {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+.menuAuth > a:not(.compactButton) {
+  position: relative;
+  display: inline-block;
+}
+
+.menuAuth > a:not(.compactButton)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -4px;
+  left: 0;
+  height: 2px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 200ms ease;
+}
+
+.menuAuth > a:not(.compactButton):hover::after,
+.menuAuth > a:not(.compactButton):focus-visible::after {
+  transform: scaleX(1);
+}
+
+.mobileMenuAction {
+  display: block;
+}
+
+.loginBtn {
+  border: none !important;
+  background-color: transparent;
+
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  line-height: normal !important;
+  overflow: visible !important;
+
+  font-weight: 700;
+  font-size: 12px;
+}
+
+/* Tablet */
+
+@media screen and (min-width: 768px) {
+  .unauthenticated,
+  .authenticated {
+    gap: 16px;
+  }
+
+  .createBtnWrapper {
+    display: block;
+  }
+
+  /* На планшеті основна CTA вже знаходиться біля burger-кнопки. */
+
+  .mobileMenuAction {
+    display: none;
+  }
+}
+
+/* Desktop */
+
+@media screen and (min-width: 1440px) {
+  .unauthenticated,
+  .authenticated {
+    gap: 16px;
+  }
+
+  .createBtnWrapper {
+    display: block;
+  }
+}

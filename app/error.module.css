@@ -1,0 +1,83 @@
+.page {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 32px 16px;
+}
+
+.content {
+  width: min(100%, 560px);
+  text-align: center;
+}
+
+.code {
+  margin-bottom: 8px;
+  color: var(--green);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.title {
+  margin-bottom: 16px;
+  font-size: clamp(36px, 10vw, 56px);
+  line-height: 1.1;
+}
+
+.description {
+  margin-bottom: 32px;
+  color: var(--gray);
+  line-height: 1.5;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.retryButton,
+.homeLink {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border: 1px solid var(--green-darker);
+  border-radius: var(--radius-pill);
+}
+
+.retryButton {
+  color: var(--white);
+  background-color: var(--green);
+}
+
+.homeLink {
+  color: var(--green-darker);
+  background-color: transparent;
+}
+
+.retryButton:hover,
+.retryButton:focus-visible {
+  background-color: var(--green-darker);
+}
+
+.homeLink:hover,
+.homeLink:focus-visible {
+  background-color: var(--light-green);
+}
+
+@media screen and (min-width: 768px) {
+  .page {
+    padding-inline: 32px;
+  }
+
+  .actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .retryButton,
+  .homeLink {
+    min-width: 160px;
+  }
+}

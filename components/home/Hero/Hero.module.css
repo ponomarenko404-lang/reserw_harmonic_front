@@ -1,0 +1,190 @@
+.hero {
+  padding-top: 16px;
+  padding-bottom: 72px;
+}
+
+.content {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.image {
+  width: 100%;
+  aspect-ratio: 361 / 322;
+  background-image: url("/images/hero/hero-image-mob.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  line-height: 1.4;
+  font-weight: 700;
+  font-size: 38px;
+  color: var(--green-darker);
+}
+.title em {
+  font-family: "Merienda", sans-serif;
+  font-style: normal;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 30px;
+}
+
+.primaryButton,
+.outlineButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 57px;
+  width: 100%;
+  border-radius: 64px;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+
+  transition:
+    background-color 200ms ease,
+    color 200ms ease,
+    border-color 200ms ease;
+}
+
+.primaryButton {
+  background-color: var(--green);
+  color: var(--white);
+}
+
+.outlineButton {
+  border: 1px solid var(--green-darker);
+  background-color: transparent;
+  color: var(--green-darker);
+}
+
+.primaryButton:hover {
+  background-color: var(--green-darker);
+}
+
+.outlineButton:hover {
+  background-color: var(--green-darker);
+  color: var(--white);
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media screen and (min-width: 768px) {
+  .hero {
+    padding-top: 48px;
+  }
+
+  .content {
+    position: relative;
+    height: 383px;
+  }
+
+  .copy {
+    position: relative;
+    z-index: 2;
+    justify-content: space-between;
+    width: 430px;
+    height: 383px;
+  }
+
+  .title {
+    max-width: 380px;
+  }
+
+  .actions {
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .primaryButton,
+  .outlineButton {
+    width: 249px;
+  }
+
+  .image {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    width: 430px;
+    height: 383px;
+    background-image: url("/images/hero/hero-image-tab.webp");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: cover;
+  }
+}
+
+/* =========================
+   DESKTOP
+========================= */
+
+@media screen and (min-width: 1440px) {
+  .hero {
+    padding-bottom:72px;
+  }
+
+  .content {
+    position: relative;
+    height: 562px;
+  }
+
+  .copy {
+    position: relative;
+    z-index: 2;
+
+    width: 599px;
+  }
+
+  .title {
+    max-width: 599px;
+    font-size: 92px;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .primaryButton,
+  .outlineButton {
+    width: 184px;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .image {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    width: 805px;
+    height: 562px;
+    background-image: url("/images/hero/hero-image-dsk.webp");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+  }
+}
