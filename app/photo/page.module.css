@@ -1,2 +1,2 @@
-.main { display: grid; min-height: 100vh; place-items: center; padding-block: 32px; background: var(--white); }
+.main { display: grid; min-height: 100vh; place-items: center; background: var(--white); }
 

@@ -20,6 +20,8 @@
   justify-content: center;
   margin: 16px 0;
   cursor: pointer;
+    width: fit-content;   /* звужує label до розміру вмісту */
+  align-self: center; 
 }
 
 .placeholderCircle {
