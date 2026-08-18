@@ -3,6 +3,7 @@ import ArticleDetails from "@/components/articles/ArticleDetails/ArticleDetails"
 import Container from "@/components/common/Container/Container";
 import { ArticlesApiError, getArticleById } from "@/lib/api/articles";
 import styles from "./page.module.css";
+import ArticleRecommendations from "@/components/articles/ArticleRecommendations/ArticleRecommendations";
 
 type ArticlePageProps = {
   params: Promise<{ articleId: string }>;
@@ -29,7 +30,10 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   return (
     <main className={styles.main}>
       <Container>
-        <ArticleDetails article={article} sidebar={null} />
+        <ArticleDetails
+          article={article}
+          sidebar={<ArticleRecommendations article={article} />}
+        />
       </Container>
     </main>
   );

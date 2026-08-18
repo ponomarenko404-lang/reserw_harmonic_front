@@ -42,10 +42,16 @@
   text-decoration: none;
 }
 
-.compactButton:hover,
 .compactButton:focus-visible {
   color: var(--white);
   background-color: var(--green-darker);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .compactButton:hover {
+    color: var(--white);
+    background-color: var(--green-darker);
+  }
 }
 
 /* Авторизаційна частина відкритого burger-меню */
