@@ -52,6 +52,7 @@ export default function ArticlesList() {
       ]),
     ).values(),
   );
+  console.log("ARTICLES:", articles);
 
   const handleLoadMore = async () => {
     const previousArticlesCount = articles.length;
@@ -60,8 +61,7 @@ export default function ArticlesList() {
 
     requestAnimationFrame(() => {
       const newArticle = listRef.current?.children[previousArticlesCount] as
-        | HTMLElement
-        | undefined;
+        HTMLElement | undefined;
 
       newArticle?.scrollIntoView({
         behavior: "smooth",
