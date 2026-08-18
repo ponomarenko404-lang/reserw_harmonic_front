@@ -8,6 +8,7 @@ type ArticleItemData = {
   img?: string;
   title: string;
   desc: string;
+  author?: string | null;
 };
 
 type ArticlesItemProps = {
@@ -15,6 +16,7 @@ type ArticlesItemProps = {
 };
 
 export default function ArticlesItem({ article }: ArticlesItemProps) {
+     console.log("ARTICLE:", article);
   return (
     <article className={styles.card}>
       <div className={styles.imageWrapper}>
@@ -32,6 +34,12 @@ export default function ArticlesItem({ article }: ArticlesItemProps) {
       </div>
 
       <div className={styles.textContent}>
+        {article.author && (
+        <p className={styles.author}>
+          {article.author.split(" ")[0]}
+        </p>
+      )}
+
         <h3 className={styles.title}>{article.title}</h3>
 
         <p className={styles.description}>{article.desc}</p>

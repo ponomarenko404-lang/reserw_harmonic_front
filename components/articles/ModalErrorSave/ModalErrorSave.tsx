@@ -22,20 +22,22 @@ export default function ModalErrorSave({
       <div className={css.content}>
         <h2 className={css.title}>Error while saving</h2>
         <p className={css.description}>
-          Log in or create an account to save articles.
-        </p>
-        <div className={css.actions}>
-          <Link className={css.primaryLink} href="/login" onClick={onClose}>
-            Log in
-          </Link>
-          <Link
-            className={css.secondaryLink}
-            href="/register"
-            onClick={onClose}
-          >
-            Register
-          </Link>
-        </div>
+        To save this article, you need to <br />
+        authorize first
+      </p>
+
+      <div className={css.actions}>
+        <Link className={css.primaryLink} href="/login" onClick={onClose}>
+          Login
+        </Link>
+        <Link
+          className={css.secondaryLink}
+          href="/register"
+          onClick={onClose}
+        >
+          Register
+        </Link>
+      </div>
       </div>
     </Modal>
   );
