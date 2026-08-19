@@ -1,4 +1,5 @@
 import type { UserArticlesResponse } from "@/types/article";
+import { apiFetch } from "./apiFetch";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3001/api";
 
@@ -62,11 +63,8 @@ export async function getSavedArticles(page = 1, perPage = 12) {
     perPage: String(perPage),
   });
 
-  const response = await fetch(
-    `${API_URL}/users/me/saved-articles?${searchParams.toString()}`,
-    {
-      credentials: "include",
-    },
+  const response = await apiFetch(
+    `/api/users/me/saved-articles?${searchParams.toString()}`,
   );
 
   const data = await response.json().catch(() => null);
