@@ -1,8 +1,16 @@
 import Container from "@/components/common/Container/Container";
+import Image from "next/image";
 import Link from "next/link";
 import styles from "./Creators.module.css";
 
-const creators = ["Naomi", "Andrii", "Emma", "Max", "Tony", "Taylor"];
+const creators = [
+  { name: "Naomi", avatar: "/images/Naomi-1.webp" },
+  { name: "Andrii", avatar: "/images/Andrii-2.webp" },
+  { name: "Emma", avatar: "/images/Emma-3.webp" },
+  { name: "Max", avatar: "/images/Max-4.webp" },
+  { name: "Tony", avatar: "/images/Tony-5.webp" },
+  { name: "Taylor", avatar: "/images/Taylor-6.webp" },
+];
 
 export default function Creators() {
   return (
@@ -10,15 +18,43 @@ export default function Creators() {
       <Container>
         <div className={styles.heading}>
           <h2 className={styles.title}>Top Creators</h2>
+
           <Link className={styles.link} href="/authors">
-            See all creators
+            <span>Go to all Creators</span>
+
+            <svg
+              className={styles.linkIcon}
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M4.875 19.125L19.1195 4.875M19.1196 12.5466L19.1195 4.875H11.448"
+                stroke="#374F42"
+                strokeWidth="0.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
           </Link>
         </div>
+
         <ul className={styles.list}>
           {creators.map((creator) => (
-            <li className={styles.creator} key={creator}>
-              <div className={styles.avatar} aria-hidden="true" />
-              <span>{creator}</span>
+            <li className={styles.creator} key={creator.name}>
+              <div className={styles.avatar}>
+                <Image
+                  src={creator.avatar}
+                  alt={`Profile photo of ${creator.name}`}
+                  fill
+                  sizes="148px"
+                  className={styles.avatarImage}
+                />
+              </div>
+
+              <span className={styles.creatorName}>{creator.name}</span>
             </li>
           ))}
         </ul>

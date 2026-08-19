@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useInfiniteAuthors } from "@/lib/query/useAuthors";
 import AuthorsList from "@/components/authors/AuthorsList/AuthorsList";
@@ -33,9 +33,9 @@ export default function AuthorsPage() {
     <div className={styles.page}>
       <section className={styles.main}>
         {/* Додано className для коректних падінгів за макетом */}
-        <Container className={styles.customContainer}>
+        <Container className={styles.container}>
           <h1 className={styles.title}>Authors</h1>
-          
+
           <AuthorsList authors={allAuthors} />
 
           {(isLoading || isFetchingNextPage) && (
@@ -44,9 +44,9 @@ export default function AuthorsPage() {
 
           {hasNextPage && !isLoading && (
             <div className={styles.loadMoreWrapper}>
-              <button 
-                type="button" 
-                onClick={() => fetchNextPage()} 
+              <button
+                type="button"
+                onClick={() => fetchNextPage()}
                 className={styles.loadMoreBtn}
               >
                 Load more
