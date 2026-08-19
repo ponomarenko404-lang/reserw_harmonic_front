@@ -1,15 +1,15 @@
 .list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Рівно по 2 в рядок на мобільних від 320px */
-  gap: 12px;
-  list-style: none;
-  padding: 0;
+  grid-template-columns: repeat(2, 172px);
+  justify-content: center;
+  gap: 24px 16px;
   margin: 0;
-  width: 100%;
+  padding: 0;
+  list-style: none;
 }
 
 .item {
-  width: 100%;
+  width: 172px;
 }
 
 .emptyState {
@@ -25,23 +25,41 @@
 
 .emptyText {
   font-size: 15px;
+  line-height: 1.5;
   color: var(--gray, #6b7280);
   text-align: center;
-  line-height: 1.5;
 }
 
-/* --- TABLET BREAKPOINT (від 768px) --- */
+/* TABLET */
 @media screen and (min-width: 768px) {
   .list {
-    grid-template-columns: repeat(2, 1fr); /* Залишається по 2 в рядок на планшеті */
-    gap: 20px;
+    grid-template-columns: repeat(2, 286px);
+    column-gap: 24px;
+    row-gap: 24px;
+
+    padding-left: 54px;
+    padding-right: 54px;
+  }
+
+  .item {
+    width: 286px;
   }
 }
 
-/* --- DESKTOP BREAKPOINT (від 1440px) --- */
+/* DESKTOP */
 @media screen and (min-width: 1440px) {
   .list {
-    grid-template-columns: repeat(4, 1fr); /* Рівно по 4 в рядок на десктопі */
-    gap: 24px;
+    grid-template-columns: repeat(4, 286px);
+    justify-content: center;
+    column-gap: 24px;
+    row-gap: 24px;
+
+    /* На ПК додаткового padding немає */
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .item {
+    width: 286px;
   }
 }
