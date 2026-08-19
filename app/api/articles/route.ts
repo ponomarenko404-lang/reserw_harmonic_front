@@ -19,13 +19,13 @@ export async function POST(request: Request) {
       status: backendResponse.status,
     });
   } catch (error: unknown) {
-    const message =
-      error instanceof Error ? error.message : "Failed to create article";
+    console.error(error);
 
     return NextResponse.json(
       {
         status: 500,
-        message,
+        message:
+          error instanceof Error ? error.message : "Failed to create article",
       },
       { status: 500 },
     );
