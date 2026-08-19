@@ -137,13 +137,9 @@ export async function getArticleById(
 }
 
 export async function addArticleToBookmarks(articleId: string) {
-  const response = await fetch(
-    `${API_URL}/users/me/saved-articles/${articleId}`,
-    {
-      method: "POST",
-      credentials: "include",
-    },
-  );
+  const response = await apiFetch(`/api/users/me/saved-articles/${articleId}`, {
+    method: "POST",
+  });
 
   const data = await response.json().catch(() => null);
 
@@ -158,13 +154,9 @@ export async function addArticleToBookmarks(articleId: string) {
 }
 
 export async function removeArticleFromBookmarks(articleId: string) {
-  const response = await fetch(
-    `${API_URL}/users/me/saved-articles/${articleId}`,
-    {
-      method: "DELETE",
-      credentials: "include",
-    },
-  );
+  const response = await apiFetch(`/api/users/me/saved-articles/${articleId}`, {
+    method: "DELETE",
+  });
 
   const data = await response.json().catch(() => null);
 
