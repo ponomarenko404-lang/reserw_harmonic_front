@@ -91,7 +91,7 @@ export async function getPopularArticles(): Promise<Article[]> {
 }
 
 export async function createArticle(formData: FormData) {
-  const response = await apiFetch(`${API_URL}/articles`, {
+  const response = await apiFetch("/api/articles", {
     method: "POST",
     body: formData,
   });
