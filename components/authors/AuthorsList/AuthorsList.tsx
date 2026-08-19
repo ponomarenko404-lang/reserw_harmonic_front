@@ -19,9 +19,10 @@ export default function AuthorsList({ authors = [] }: AuthorsListProps) {
 
   return (
     <ul className={styles.list} role="list">
-      {authors.map((author) => (
+      {authors.map((author, index) => ( // 1. Додаємо index сюди
         <li key={author.id} className={styles.item}>
-          <AuthorsItem author={author} />
+          {/* 2. Передаємо index у компонент картки авторів */}
+          <AuthorsItem author={author} index={index} /> 
         </li>
       ))}
     </ul>

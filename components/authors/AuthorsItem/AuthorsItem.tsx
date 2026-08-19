@@ -5,9 +5,13 @@ import styles from "./AuthorsItem.module.css";
 
 interface AuthorsItemProps {
   author: IAuthor;
+  index: number; 
 }
 
-export default function AuthorsItem({ author }: AuthorsItemProps) {
+export default function AuthorsItem({ author, index }: AuthorsItemProps) {
+  
+  const isPriority = index < 4;
+
   return (
     <Link href={`/authors/${author.id}`} className={styles.cardLink}>
       <article className={styles.card}>
@@ -15,8 +19,10 @@ export default function AuthorsItem({ author }: AuthorsItemProps) {
           <Image
             src={author.avatarUrl || "/default-avatar.png"}
             alt={`Profile photo of ${author.name}`}
-            width={148}
-            height={148}
+            fill 
+            sizes="(max-width: 767px) 148px, 262px" 
+            priority={isPriority} 
+            quality={60}
             className={styles.photo}
           />
         </div>
