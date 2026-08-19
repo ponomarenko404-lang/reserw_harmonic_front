@@ -39,11 +39,17 @@ export default function MobileMenu() {
   }, [isOpen]);
 
   useEffect(() => {
+    const frameId = window.requestAnimationFrame(() => {
+      setIsOpen(false);
+    });
+
     window.scrollTo({
       top: 0,
       left: 0,
       behavior: "auto",
     });
+
+    return () => window.cancelAnimationFrame(frameId);
   }, [pathname]);
 
   const closeMenu = () => {
