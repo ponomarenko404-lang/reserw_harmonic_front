@@ -8,6 +8,7 @@
   background-color: var(--light-green);
   padding-top: 14px;
   padding-bottom: 14px;
+  align-items: center;
 }
 
 .header :global(.container) {
@@ -50,18 +51,18 @@
   .navigation {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 32px;
   }
 
   .navList {
     display: flex;
     align-items: center;
-    gap: 24px;
   }
 
   .navLink {
     position: relative;
     display: inline-block;
+    padding: 13px 0;
     font-family: var(--font-family);
     font-weight: 700;
     font-size: 12px;
@@ -74,7 +75,7 @@
     content: "";
     position: absolute;
     right: 0;
-    bottom: -4px;
+    bottom: 4px;
     left: 0;
     height: 2px;
     background-color: currentColor;
