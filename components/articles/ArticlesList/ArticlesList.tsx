@@ -52,7 +52,6 @@ export default function ArticlesList() {
       ]),
     ).values(),
   );
-  console.log("ARTICLES:", articles);
 
   const handleLoadMore = async () => {
     const previousArticlesCount = articles.length;

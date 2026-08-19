@@ -16,7 +16,6 @@ type ArticlesItemProps = {
 };
 
 export default function ArticlesItem({ article }: ArticlesItemProps) {
-     console.log("ARTICLE:", article);
   return (
     <article className={styles.card}>
       <div className={styles.imageWrapper}>
