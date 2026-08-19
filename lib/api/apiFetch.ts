@@ -1,5 +1,3 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3001/api";
-
 let isRefreshing = false;
 let refreshPromise: Promise<void> | null = null;
 
@@ -11,7 +9,7 @@ async function refreshUserSession(): Promise<void> {
   isRefreshing = true;
 
   refreshPromise = (async () => {
-    const response = await fetch(`${API_URL}/auth/refresh`, {
+    const response = await fetch("/api/auth/refresh", {
       method: "POST",
       credentials: "include",
     });
