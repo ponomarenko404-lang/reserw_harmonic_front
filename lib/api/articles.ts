@@ -1,3 +1,5 @@
+import { apiFetch } from "./apiFetch";
+
 import type {
   Article,
   ArticleDetails,
@@ -89,10 +91,9 @@ export async function getPopularArticles(): Promise<Article[]> {
 }
 
 export async function createArticle(formData: FormData) {
-  const response = await fetch("/api/articles", {
+  const response = await apiFetch("/api/articles", {
     method: "POST",
     body: formData,
-    credentials: "include",
   });
 
   if (!response.ok) {

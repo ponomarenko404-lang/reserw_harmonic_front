@@ -105,7 +105,7 @@ export async function updateAvatar(file: File) {
 
   formData.append("avatar", file);
 
-  const response = await fetch(`${API_URL}/users/me/avatar`, {
+  const response = await fetch("/api/users/me/avatar", {
     method: "PATCH",
     credentials: "include",
     body: formData,

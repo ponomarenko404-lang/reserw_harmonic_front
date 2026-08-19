@@ -3,7 +3,9 @@
   grid-template-columns: 1fr;
   gap: 24px;
 }
-
+.list > li {
+  scroll-margin-top: 78px;
+}
 .toolbar {
   display: flex;
   align-items: center;
@@ -50,6 +52,9 @@
 @media screen and (min-width: 768px) {
   .list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .list > li {
+    scroll-margin-top: 90px;
   }
   .loadMore {
     width: 390px;
