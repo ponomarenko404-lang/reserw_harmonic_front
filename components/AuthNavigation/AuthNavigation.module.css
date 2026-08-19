@@ -42,10 +42,16 @@
   text-decoration: none;
 }
 
-.compactButton:hover,
 .compactButton:focus-visible {
   color: var(--white);
   background-color: var(--green-darker);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .compactButton:hover {
+    color: var(--white);
+    background-color: var(--green-darker);
+  }
 }
 
 /* Авторизаційна частина відкритого burger-меню */
@@ -83,25 +89,19 @@
   display: block;
 }
 
-.loginBtn {
-  border: none !important;
-  background-color: transparent;
-
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  line-height: normal !important;
-  overflow: visible !important;
-
-  font-weight: 700;
-  font-size: 12px;
-}
-
 /* Tablet */
 
 @media screen and (min-width: 768px) {
   .unauthenticated,
   .authenticated {
     gap: 16px;
+  }
+
+  .joinBtn {
+    /* padding-top: 13px !important;
+    padding-bottom: 13px !important; */
+    padding: 12px 16px;
+    line-height: 1.25;
   }
 
   .createBtnWrapper {
@@ -121,6 +121,16 @@
   .unauthenticated,
   .authenticated {
     gap: 16px;
+  }
+
+  .loginBtn {
+    border: none !important;
+    background-color: transparent;
+
+    padding-top: 13px !important;
+    padding-bottom: 13px !important;
+    line-height: normal !important;
+    overflow: visible !important;
   }
 
   .createBtnWrapper {

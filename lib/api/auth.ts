@@ -5,16 +5,10 @@ import type {
   RegisterResponse,
 } from "@/types/auth";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
-
 export async function loginUser(
   credentials: LoginCredentials,
 ): Promise<AuthUser> {
-  if (!API_URL) {
-    throw new Error("NEXT_PUBLIC_API_URL is not configured");
-  }
-
-  const response = await fetch(`${API_URL}/auth/login`, {
+  const response = await fetch("/api/auth/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -35,11 +29,7 @@ export async function loginUser(
 export async function registerUser(
   credentials: RegisterCredentials,
 ): Promise<RegisterResponse> {
-  if (!API_URL) {
-    throw new Error("NEXT_PUBLIC_API_URL is not configured");
-  }
-
-  const response = await fetch(`${API_URL}/auth/register`, {
+  const response = await fetch("/api/auth/register", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -62,11 +52,7 @@ export async function registerUser(
 }
 
 export async function logoutUser(): Promise<void> {
-  if (!API_URL) {
-    throw new Error("NEXT_PUBLIC_API_URL is not configured");
-  }
-
-  const response = await fetch(`${API_URL}/auth/logout`, {
+  const response = await fetch("/api/auth/logout", {
     method: "POST",
     credentials: "include",
   });

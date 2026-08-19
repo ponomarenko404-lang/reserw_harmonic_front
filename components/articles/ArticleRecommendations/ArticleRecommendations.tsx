@@ -20,9 +20,12 @@ export default async function ArticleRecommendations({
     .filter((item) => item._id !== article._id)
     .slice(0, 3);
 
-  const publicationDate = new Intl.DateTimeFormat("uk-UA").format(
-    new Date(`${article.date}T00:00:00`),
-  );
+  const parsedDate = article.date ? new Date(article.date) : null;
+
+  const publicationDate =
+    parsedDate && !Number.isNaN(parsedDate.getTime())
+      ? new Intl.DateTimeFormat("uk-UA").format(parsedDate)
+      : "";
 
   return (
     <section className={styles.section}>
