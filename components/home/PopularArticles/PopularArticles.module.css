@@ -21,7 +21,8 @@
 }
 
 .title {
-  font-size: clamp(32px, 8vw, 48px);
+  font-weight: 700;
+  font-size: 32px;
 }
 
 .link {
