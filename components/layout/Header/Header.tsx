@@ -1,10 +1,11 @@
 import Container from "@/components/common/Container/Container";
-import Link from "next/link";
+// import Link from "next/link";
 import MobileMenu from "@/components/layout/MobileMenu/MobileMenu";
 
 import css from "./Header.module.css";
 import AuthNavigation from "@/components/AuthNavigation/AuthNavigation";
 import Logo from "@/components/common/Logo/Logo";
+import NavLinks from "./NavLinks";
 
 export default function Header() {
   return (
@@ -14,23 +15,13 @@ export default function Header() {
 
         <nav aria-label="Main Navigation">
           <ul className={css.navigation}>
-            <li>
-              <Link href="/" className={css.navLink}>
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link href="/articles" className={css.navLink}>
-                Articles
-              </Link>
-            </li>
-            <li>
-              <Link href="/authors" className={css.navLink}>
-                Creators
-              </Link>
-            </li>
+            <NavLinks />
 
-            <AuthNavigation variant="nav" className={css.navLink} />
+            <AuthNavigation
+              variant="nav"
+              className={css.navLink}
+              activeClassName={css.active}
+            />
 
             <li className={css.authItem}>
               <AuthNavigation />
