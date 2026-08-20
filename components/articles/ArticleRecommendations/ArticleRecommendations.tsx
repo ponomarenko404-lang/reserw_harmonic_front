@@ -74,10 +74,7 @@ export default async function ArticleRecommendations({
         </ul>
       </div>
 
-      <div className={styles.saveButton}>
-        <span>Save</span>
-        <ButtonAddToBookmarks articleId={article._id} />
-      </div>
+      <ButtonAddToBookmarks articleId={article._id} showLabel fullWidth />
     </section>
   );
 }
