@@ -158,8 +158,7 @@
     transition: transform 200ms ease;
   }
 
-  .loginBtn:hover::after,
-  .loginBtn:focus-visible::after {
+  .loginBtn.active::after {
     transform: scaleX(1);
   }
   .loginBtn:hover,
