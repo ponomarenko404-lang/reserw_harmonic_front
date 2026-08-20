@@ -3,7 +3,7 @@
   flex-direction: column;
   width: 100%;
   min-height: 360px;
-  padding: 24px;
+  padding: 48px 32px;
   border-radius: 32px;
   background-color: var(--light-green);
 }
@@ -237,7 +237,6 @@
   .form {
     width: 522px;
     min-height: 432px;
-    padding: 48px 32px;
     margin: 0 auto;
   }
 }
@@ -250,9 +249,5 @@
   .form {
     width: 392px;
     min-height: 632px;
-  }
-
-  .passwordWrapper .input {
-    padding-right: 32px;
   }
 }

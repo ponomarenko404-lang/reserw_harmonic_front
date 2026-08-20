@@ -1,16 +1,16 @@
 .main {
-  padding-block: 32px;
+  padding: 85px 0;
   background-color: var(--white);
 }
 
 @media screen and (min-width: 768px) {
   .main {
-    padding-block: 64px;
+    padding: 142px 0;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .main {
-    padding-block: 80px;
+    padding: 50px 0;
   }
 }
