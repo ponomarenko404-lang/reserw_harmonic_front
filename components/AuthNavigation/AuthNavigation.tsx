@@ -159,16 +159,12 @@ export default function AuthNavigation({
         </div>
       ) : (
         <div className={css.unauthenticated}>
-          <Link href="/login" onClick={onLinkClick}>
-            <Button variant="outline" size="sm" className={css.loginBtn}>
-              Log in
-            </Button>
+          <Link href="/login" onClick={onLinkClick} className={css.loginBtn}>
+            Log in
           </Link>
 
-          <Link href="/register" onClick={onLinkClick}>
-            <Button variant="fill" size="md" className={css.joinBtn}>
-              Join now
-            </Button>
+          <Link href="/register" onClick={onLinkClick} className={css.joinBtn}>
+            Join now
           </Link>
         </div>
       )}
