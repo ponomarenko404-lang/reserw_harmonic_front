@@ -37,7 +37,7 @@ body {
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  padding-top: 62px;
+  /* padding-top: 62px; */
   color: var(--black);
   background-color: var(--white);
   font-family: var(--font-family);
@@ -115,10 +115,5 @@ ol {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-  }
-}
-@media screen and (min-width: 768px) {
-  body {
-    padding-top: 74px;
   }
 }

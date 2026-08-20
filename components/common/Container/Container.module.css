@@ -1,8 +1,8 @@
 .container {
   width: 100%;
-  min-width: 320px;
-  margin: 0 auto;
+  max-width: 100%;
   padding: 0 16px;
+  margin: 0 auto;
 }
 
 @media only screen and (min-width: 375px) {
@@ -24,8 +24,3 @@
     padding: 0 108px;
   }
 }
-/* @media only screen and (min-width: 375px) {
-  .container {
-    max-width: var(--container-width-mobile);
-  }
-} */

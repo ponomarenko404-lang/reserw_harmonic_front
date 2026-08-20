@@ -22,21 +22,8 @@ export default function Creators() {
           <Link className={styles.link} href="/authors">
             <span>Go to all Creators</span>
 
-            <svg
-              className={styles.linkIcon}
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              aria-hidden="true"
-            >
-              <path
-                d="M4.875 19.125L19.1195 4.875M19.1196 12.5466L19.1195 4.875H11.448"
-                stroke="#374F42"
-                strokeWidth="0.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
+            <svg className={styles.arrow} aria-hidden="true">
+              <use href="/icons/sprite.svg#icon-right-arrow-up" />
             </svg>
           </Link>
         </div>

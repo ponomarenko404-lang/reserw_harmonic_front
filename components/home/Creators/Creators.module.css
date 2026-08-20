@@ -36,6 +36,20 @@
   line-height: 20px;
   text-decoration: none;
 }
+.link {
+  flex-shrink: 0;
+  padding-right: 12px;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--green-darker);
+}
+.arrow {
+  width: 14.24px;
+  height: 14.25px;
+  fill: none;
+  stroke: var(--green-darker);
+  stroke-width: 0.5px;
+}
 
 .linkIcon {
   flex-shrink: 0;
@@ -104,10 +118,6 @@
     font-size: 32px;
   }
 
-  .link {
-    flex-shrink: 0;
-  }
-
   .list {
     grid-template-columns: repeat(3, 184px);
     justify-content: space-between;
@@ -137,7 +147,7 @@
 
 @media screen and (min-width: 1440px) {
   .section {
-    padding-block: 96px;
+    /* padding-block: 96px; */
   }
 
   .list {
