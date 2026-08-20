@@ -52,6 +52,22 @@ export default function MobileMenu() {
     return () => window.cancelAnimationFrame(frameId);
   }, [pathname]);
 
+  useEffect(() => {
+    const desktopQuery = window.matchMedia("(min-width: 1440px)");
+
+    const handleDesktopChange = (event: MediaQueryListEvent) => {
+      if (event.matches) {
+        setIsOpen(false);
+      }
+    };
+
+    desktopQuery.addEventListener("change", handleDesktopChange);
+
+    return () => {
+      desktopQuery.removeEventListener("change", handleDesktopChange);
+    };
+  }, []);
+
   const closeMenu = () => {
     setIsOpen(false);
   };
