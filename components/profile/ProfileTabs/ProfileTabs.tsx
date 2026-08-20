@@ -1,6 +1,23 @@
 import Link from "next/link";
 import styles from "./ProfileTabs.module.css";
 
-export default function ProfileTabs() {
-  return <nav className={styles.tabs} aria-label="Profile sections"><Link href="/profile?tab=saved">Saved articles</Link><Link href="/profile?tab=my-articles">My articles</Link></nav>;
+type ProfileTabsProps = { activeTab: "saved" | "my-articles" };
+
+export default function ProfileTabs({ activeTab }: ProfileTabsProps) {
+  return (
+    <nav className={styles.tabs} aria-label="Profile sections">
+      <Link
+        className={activeTab === "my-articles" ? styles.active : ""}
+        href="/profile?tab=my-articles"
+      >
+        My Articles
+      </Link>
+      <Link
+        className={activeTab === "saved" ? styles.active : ""}
+        href="/profile?tab=saved"
+      >
+        Saved Articles
+      </Link>
+    </nav>
+  );
 }

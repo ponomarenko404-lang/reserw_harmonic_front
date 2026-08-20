@@ -115,5 +115,5 @@ export async function updateAvatar(file: File) {
     throw new Error(data?.message ?? "Failed to update avatar");
   }
 
-  return data.user;
+  return data?.user ?? data;
 }

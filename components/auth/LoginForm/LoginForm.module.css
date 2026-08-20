@@ -2,208 +2,205 @@
    ======================================== */
 
 .form {
-    width: 330px;
-    min-height: 408px;
+  width: 330px;
+  min-height: 408px;
 
-    padding: 48px 32px;
+  padding: 48px 32px;
 
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    border-radius: 32px;
-    background-color: var(--light-green);
+  border-radius: 32px;
+  background-color: var(--light-green);
 
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 /* TITLE */
 
 .title {
-    width: 100%;
+  width: 100%;
 
-    margin: 0 0 27px;
+  margin: 0 0 27px;
 
-    text-align: center;
+  text-align: center;
 
-    font-family: var(--font-family);
-    font-size: 32px;
-    font-weight: 600;
-    line-height: 1.375;
+  font-family: var(--font-family);
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.375;
 
-    color: var(--black);
+  color: var(--black);
 }
 
 /* FIELD */
 
 .field {
-    width: 100%;
-    margin: 0 0 20px;
+  width: 100%;
+  margin: 0 0 20px;
 }
 
 /* LABEL */
 
 .label {
-    display: block;
+  display: block;
 
-    margin: 0;
+  margin: 0;
 
-    font-family: var(--font-family);
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 20px;
+  font-family: var(--font-family);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
 
-    color: var(--black);
+  color: var(--black);
 }
 
 /* INPUT */
 
 .input {
-    display: block;
+  display: block;
 
-    width: 100%;
-    height: 41px;
+  width: 100%;
+  height: 41px;
 
-    padding: 8px;
+  padding: 8px;
 
-    border: 1px solid var(--light-gray);
-    border-radius: 8px;
-    outline: none;
+  border: 1px solid var(--light-gray);
+  border-radius: 8px;
+  outline: none;
 
-    background-color: var(--white);
-    color: var(--black);
+  background-color: var(--white);
+  color: var(--black);
 
-    font-family: var(--font-family);
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
 
-    box-sizing: border-box;
+  box-sizing: border-box;
 
-    transition: border-color 150ms ease;
+  transition: border-color 150ms ease;
 }
 
 .input::placeholder {
-    color: var(--gray);
+  color: var(--gray);
 }
 
 .input:hover {
-    border-color: var(--green);
+  border-color: var(--green);
 }
 
 .input:focus {
-    border-color: var(--green);
+  border-color: var(--green);
 }
 
 /* PASSWORD */
 
 .passwordWrapper {
-    position: relative;
+  position: relative;
 
-    width: 100%;
+  width: 100%;
 }
 
 .passwordInput {
-    padding-right: 40px;
+  padding-right: 40px;
 }
 
 /* EYE */
 
 .eyeButton {
-    position: absolute;
+  position: absolute;
 
-    top: 50%;
-    right: 8px;
+  top: 50%;
+  right: 8px;
 
-    width: 24px;
-    height: 24px;
+  width: 24px;
+  height: 24px;
 
-    padding: 0;
+  padding: 0;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    transform: translateY(-50%);
+  transform: translateY(-50%);
 
-    border: 0;
-    outline: 0;
+  border: 0;
+  outline: 0;
 
-    background-color: transparent;
-    color: var(--black);
+  background-color: transparent;
+  color: var(--black);
 
-    cursor: pointer;
+  cursor: pointer;
 }
 
-.eyeButton svg {
-    display: block;
-
-    width: 20px;
-    height: 20px;
+.eyeIcon {
+  display: block;
 }
 
-.eyeButton:hover {
-    opacity: 0.7;
+.eyeIcon:hover {
+  opacity: 0.7;
 }
 
-.eyeButton:focus-visible {
-    outline: 2px solid var(--green);
-    outline-offset: 2px;
-    border-radius: 4px;
+.eyeIcon:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 /* VALIDATION */
 
 .error {
-    margin: 4px 0 0;
+  margin: 4px 0 0;
 
-    font-family: var(--font-family);
-    font-size: 11px;
-    font-weight: 400;
-    line-height: 14px;
+  font-family: var(--font-family);
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 14px;
 
-    color: var(--red);
+  color: var(--red);
 }
 
 /* LOGIN BUTTON
 */
 
-.form>button {
-    width: 100%;
-    min-height: 38px;
-    height: 38px;
+.form > button {
+  width: 100%;
+  min-height: 38px;
+  height: 38px;
 
-    padding: 8px;
+  padding: 8px;
 
-    border-radius: 64px;
+  border-radius: 64px;
 }
 
 /* REGISTER */
 
 .registerText {
-    width: 100%;
+  width: 100%;
 
-    margin: 27px 0 0;
+  margin: 27px 0 0;
 
-    text-align: center;
+  text-align: center;
 
-    font-family: var(--font-family);
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 25px;
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 25px;
 
-    color: var(--black);
+  color: var(--black);
 }
 
 .registerLink {
-    color: var(--black);
+  color: var(--black);
 
-    font-weight: 600;
-    text-decoration: underline;
-    text-underline-offset: 2px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .registerLink:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 /* ========================================
@@ -211,12 +208,12 @@
    ======================================== */
 
 @media screen and (min-width: 768px) {
-    .form {
-        width: 522px;
-        min-height: 408px;
+  .form {
+    width: 522px;
+    min-height: 408px;
 
-        padding: 48px 32px;
-    }
+    padding: 48px 32px;
+  }
 }
 
 /* ========================================
@@ -224,10 +221,10 @@
    ======================================== */
 
 @media screen and (min-width: 1440px) {
-    .form {
-        width: 392px;
-        min-height: 408px;
+  .form {
+    width: 392px;
+    min-height: 408px;
 
-        padding: 48px 32px;
-    }
+    padding: 48px 32px;
+  }
 }
