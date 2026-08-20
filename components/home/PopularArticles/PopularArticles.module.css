@@ -1,5 +1,4 @@
 .section {
-  /* padding-block: 48px; */
   padding: 72px 0;
 }
 
@@ -94,10 +93,6 @@
 }
 
 @media screen and (min-width: 1440px) {
-  .section {
-    padding-block: 96px;
-  }
-
   .imagePlaceholder {
     min-height: 280px;
   }

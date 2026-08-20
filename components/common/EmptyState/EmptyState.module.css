@@ -1,13 +1,16 @@
 .state {
   display: flex;
-  min-height: 288px;
+  height: 299px;
   flex-direction: column;
   justify-content: space-between;
   gap: 24px;
-  padding: 24px 12px 12px;
+  padding: 12px;
   border-radius: 32px;
   background: var(--light-green);
+  margin-top: 51px;
+  margin-bottom: 145px;
 }
+
 .icon {
   display: grid;
   width: 40px;
@@ -40,7 +43,13 @@
 
 @media screen and (min-width: 768px) {
   .state {
-    min-height: 300px;
-    padding: 24px 12px 12px;
+    margin-top: 40px;
+    margin-bottom: 31px;
+    width: 520px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .state {
+    width: 497px;
   }
 }
