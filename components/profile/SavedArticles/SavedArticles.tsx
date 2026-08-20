@@ -13,7 +13,6 @@ export default function SavedArticles() {
   if (isLoading) {
     return (
       <section className={styles.section}>
-        <h2>Saved articles</h2>
         <p>Loading...</p>
       </section>
     );
@@ -22,7 +21,6 @@ export default function SavedArticles() {
   if (isError) {
     return (
       <section className={styles.section}>
-        <h2>Saved articles</h2>
         <p>Failed to load saved articles.</p>
       </section>
     );
@@ -31,10 +29,11 @@ export default function SavedArticles() {
   if (articles.length === 0) {
     return (
       <section className={styles.section}>
-        <h2>Saved articles</h2>
         <EmptyState
-          title="No saved articles"
-          description="Articles you save will appear here."
+          title="Nothing found."
+          description="Save your first article"
+          actionLabel="Go to articles"
+          actionHref="/articles"
         />
       </section>
     );

@@ -16,7 +16,6 @@ export default function MyArticles() {
   if (isLoading) {
     return (
       <section className={styles.section}>
-        <h2>My articles</h2>
         <p>Loading...</p>
       </section>
     );
@@ -25,7 +24,6 @@ export default function MyArticles() {
   if (isError) {
     return (
       <section className={styles.section}>
-        <h2>My articles</h2>
         <p>Failed to load articles.</p>
       </section>
     );
@@ -34,10 +32,11 @@ export default function MyArticles() {
   if (articles.length === 0) {
     return (
       <section className={styles.section}>
-        <h2>My articles</h2>
         <EmptyState
-          title="No articles yet"
-          description="Articles you create will appear here."
+          title="Nothing found."
+          description="Write your first article"
+          actionLabel="Create an article"
+          actionHref="/articles/create"
         />
       </section>
     );

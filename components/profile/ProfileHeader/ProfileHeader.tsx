@@ -78,8 +78,8 @@ export default function ProfileHeader({
       />
 
       <div>
-        <h1>{name}</h1>
-        <p>Profile information</p>
+        <h2>{user?.name ?? name}</h2>
+        <p>{user?.articlesCount ?? 0} articles</p>
       </div>
     </section>
   );

@@ -15,13 +15,11 @@ export default async function ProfilePage({
     <div className={styles.page}>
       <section className={styles.main}>
         <Container>
-          <h1 className={styles.title}>My profile</h1>
+          <h1 className={styles.title}>My Profile</h1>
 
           <ProfileHeader />
 
-          <ProfileTabs />
-
-          <p className={styles.activeTab}>Active tab: {tab}</p>
+          <ProfileTabs activeTab={tab} />
 
           {tab === "my-articles" ? <MyArticles /> : <SavedArticles />}
         </Container>
