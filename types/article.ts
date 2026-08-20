@@ -21,16 +21,20 @@ export type ArticleOwner =
 
 export type Article = {
   _id: string;
+  photo: string;
   title: string;
-  desc: string;
-  article: string;
-  img: string;
-  rate: number;
+  description: string;
+  content?: string;
+  rate?: number;
+  ownerId: string | null;
   date: string;
+  author?: string | null;
   category: Category;
-  ownerId: ArticleOwner;
-  createdAt: string;
-  updatedAt: string;
+  owner?: {
+    _id: string;
+    name: string;
+    avatarUrl?: string;
+  } | null;
 };
 
 export type ArticlesResponse = {

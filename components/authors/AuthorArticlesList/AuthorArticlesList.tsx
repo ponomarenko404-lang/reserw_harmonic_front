@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import toast from "react-hot-toast";
 import { useUserArticles } from "@/lib/query/useUserArticles";
 import ArticlesItem from "@/components/articles/ArticlesItem/ArticlesItem";
@@ -17,8 +17,6 @@ type AuthorArticlesListProps = {
 export default function AuthorArticlesList({
   authorId,
 }: AuthorArticlesListProps) {
-  const listRef = useRef<HTMLUListElement>(null);
-
   const {
     data,
     isLoading,
@@ -39,16 +37,7 @@ export default function AuthorArticlesList({
     }
   }, [isError, error]);
 
-  const loadMore = async () => {
-    const result = await fetchNextPage();
-
-    if (result.isSuccess) {
-      listRef.current?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-  };
+  const loadMore = () => fetchNextPage();
 
   if (isLoading) {
     return <Loader fullScreen={false} label="Loading articles" />;
@@ -61,7 +50,7 @@ export default function AuthorArticlesList({
 
   return (
     <>
-      <ul ref={listRef} className={styles.list}>
+      <ul className={styles.list}>
         {articles.map((article) => (
           <li key={article._id}>
             <ArticlesItem article={article} />

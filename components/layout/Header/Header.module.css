@@ -85,14 +85,15 @@
     transition: transform 200ms ease;
   }
 
-  .navLink:hover::after,
-  .navLink:focus-visible::after {
-    transform: scaleX(1);
-  }
   .navLink:hover,
   .navLink:focus {
     color: var(--green);
   }
+
+  .navLink.active::after {
+    transform: scaleX(1);
+  }
+
   .tabletControls {
     display: none;
   }

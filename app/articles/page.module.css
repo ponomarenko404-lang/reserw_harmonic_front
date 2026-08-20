@@ -4,7 +4,7 @@
 
 .main {
   min-height: 70vh;
-  padding-block: 40px 64px;
+  padding-top: 48px;
 }
 
 .title {
@@ -20,12 +20,10 @@
 
 @media screen and (min-width: 768px) {
   .main {
-    padding-block: 64px 88px;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .main {
-    padding-block: 80px 112px;
   }
 }
