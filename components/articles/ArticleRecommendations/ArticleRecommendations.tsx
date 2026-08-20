@@ -62,7 +62,10 @@ export default async function ArticleRecommendations({
                     {recommendation.title}
                   </strong>
 
-                  <span className={styles.cardAuthor}>Автор невідомий</span>
+                  {/* <span className={styles.cardAuthor}>Автор невідомий</span> */}
+                  <span className={styles.cardAuthor}>
+                    {recommendation.owner?.name ?? "Автор невідомий"}
+                  </span>
                 </span>
 
                 <span className={styles.arrow} aria-hidden="true">
@@ -74,7 +77,13 @@ export default async function ArticleRecommendations({
         </ul>
       </div>
 
-      <ButtonAddToBookmarks articleId={article._id} showLabel fullWidth />
+      {/* <ButtonAddToBookmarks articleId={article._id} showLabel fullWidth /> */}
+      <ButtonAddToBookmarks
+        key={article._id}
+        articleId={article._id}
+        showLabel
+        fullWidth
+      />
     </section>
   );
 }
