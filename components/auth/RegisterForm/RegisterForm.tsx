@@ -89,7 +89,7 @@ export default function RegisterForm() {
 
             {/* NAME */}
             <div className={styles.field}>
-              <label htmlFor="name">Enter your name</label>
+              <label htmlFor="name" className={styles.label}>Enter your name</label>
 
               <Field
                 id="name"
@@ -109,7 +109,9 @@ export default function RegisterForm() {
 
             {/* EMAIL */}
             <div className={styles.field}>
-              <label htmlFor="email">Enter your email address</label>
+              <label htmlFor="email" className={styles.label}>
+                Enter your email address
+              </label>
 
               <Field
                 id="email"
@@ -129,7 +131,9 @@ export default function RegisterForm() {
 
             {/* PASSWORD */}
             <div className={styles.field}>
-              <label htmlFor="password">Create a strong password</label>
+              <label htmlFor="password" className={styles.label}>
+                Create a strong password
+              </label>
 
               <div className={styles.passwordWrapper}>
                 <Field
@@ -165,7 +169,7 @@ export default function RegisterForm() {
 
             {/* REPEAT PASSWORD */}
             <div className={styles.field}>
-              <label htmlFor="repeatPassword">Repeat your password</label>
+              <label htmlFor="repeatPassword" className={styles.label}>Repeat your password</label>
 
               <div className={styles.passwordWrapper}>
                 <Field

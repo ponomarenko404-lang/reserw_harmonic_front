@@ -49,10 +49,8 @@
 }
 
 .label {
-  font-family: var(--font-family);
   font-size: 12px;
   font-weight: 400;
-  line-height: 1.2;
   color: var(--black);
 }
 
