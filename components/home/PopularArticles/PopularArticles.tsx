@@ -8,7 +8,7 @@ export default async function PopularArticles() {
   const articles = await getPopularArticles();
   return (
     <section className={styles.section} id="popular-articles">
-      <Container>
+      <Container className="container">
         <div className={styles.heading}>
           <h2 className={styles.title}>Popular Articles</h2>
 
