@@ -14,10 +14,14 @@ import { useAuthStore } from "@/store/authStore";
 
 type ButtonAddToBookmarksProps = {
   articleId: string;
+  showLabel?: boolean;
+  fullWidth?: boolean;
 };
 
 export default function ButtonAddToBookmarks({
   articleId,
+  showLabel = false,
+  fullWidth = false,
 }: ButtonAddToBookmarksProps) {
   const user = useAuthStore((state) => state.user);
   const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
@@ -81,13 +85,17 @@ export default function ButtonAddToBookmarks({
   return (
     <>
       <button
-        className={`${styles.button} ${isSaved ? styles.saved : ""}`}
+        className={`${styles.button} ${isSaved ? styles.saved : ""} ${
+          fullWidth ? styles.fullWidth : ""
+        }`}
         type="button"
         aria-label={isSaved ? "Remove article from saved" : "Save article"}
         aria-pressed={isSaved}
         disabled={isLoading}
         onClick={handleSave}
       >
+        {showLabel && <span>{isSaved ? "Saved" : "Save"}</span>}
+
         {isLoading ? (
           <span className={styles.loader}>
             <Loader

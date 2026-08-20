@@ -75,7 +75,7 @@
   font-size: 22px;
 }
 
-.saveButton {
+/* .saveButton {
   display: flex;
   height: 57px;
   align-items: center;
@@ -93,7 +93,7 @@
   padding: 4px;
   border: 0;
   color: inherit;
-}
+} */
 
 @media screen and (max-width: 767px) {
   .panel {
