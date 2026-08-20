@@ -85,7 +85,7 @@
   box-shadow: 0 0 0 1000px var(--white) inset;
 }
 .input::placeholder {
-  color: var(--light-gray);
+  color: var(--gray);
 }
 
 .input:focus {
