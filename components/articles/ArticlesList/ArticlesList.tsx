@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 import ArticlesFilter, {
   type Category,
 } from "../ArticlesFilter/ArticlesFilter";
@@ -13,7 +13,6 @@ const ARTICLES_PER_PAGE = 12;
 
 export default function ArticlesList() {
   const [category, setCategory] = useState<Category>("all");
-  const listRef = useRef<HTMLUListElement>(null);
 
   const {
     data,
@@ -54,21 +53,7 @@ export default function ArticlesList() {
   );
   console.log("ARTICLES:", articles);
 
-  const handleLoadMore = async () => {
-    const previousArticlesCount = articles.length;
-
-    await fetchNextPage();
-
-    requestAnimationFrame(() => {
-      const newArticle = listRef.current?.children[previousArticlesCount] as
-        HTMLElement | undefined;
-
-      newArticle?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    });
-  };
+  const handleLoadMore = () => fetchNextPage();
 
   return (
     <>
@@ -83,7 +68,7 @@ export default function ArticlesList() {
       {articles.length === 0 ? (
         <p className={styles.empty}>No articles found.</p>
       ) : (
-        <ul ref={listRef} className={styles.list}>
+        <ul className={styles.list}>
           {articles.map((article) => (
             <li key={article._id}>
               <ArticlesItem article={article} />

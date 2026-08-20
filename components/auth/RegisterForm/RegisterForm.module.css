@@ -126,14 +126,9 @@
   border: 0;
 
   background: transparent;
-  color: var(--gray);
+  color: var(--black);
 
   transform: translateY(-50%);
-}
-
-.passwordIcon {
-  fill: none;
-  stroke: currentColor;
 }
 
 .passwordButton:hover {
@@ -227,6 +222,7 @@
 
 .loginLink:hover {
   color: var(--green);
+  text-decoration: none;
 }
 
 /* =========================

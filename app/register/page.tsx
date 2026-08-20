@@ -5,10 +5,12 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Реєстрація | Назва Проєкту",
-  description: "Створіть новий акаунт, щоб отримати доступ до всіх можливостей сервісу.",
+  description:
+    "Створіть новий акаунт, щоб отримати доступ до всіх можливостей сервісу.",
   openGraph: {
     title: "Реєстрація | Назва Проєкту",
-    description: "Створіть новий акаунт, щоб отримати доступ до всіх можливостей сервісу.",
+    description:
+      "Створіть новий акаунт, щоб отримати доступ до всіх можливостей сервісу.",
   },
 };
 
@@ -16,9 +18,10 @@ export default function RegisterPage() {
   return (
     <section className={styles.main}>
       <Container>
+        <div className={styles.loginWrapper}>
           <RegisterForm />
+        </div>
       </Container>
     </section>
   );
 }
-

@@ -8,18 +8,22 @@ import UserBar from "../layout/UserBar/UserBar";
 import LogoutModal from "../layout/LogoutModal/LogoutModal";
 import Button from "../common/Button/Button";
 import css from "./AuthNavigation.module.css";
+import { usePathname } from "next/navigation";
 
 interface AuthNavigationProps {
   onLinkClick?: () => void;
   variant?: "default" | "tablet" | "menu" | "nav";
   className?: string;
+  activeClassName?: string;
 }
 
 export default function AuthNavigation({
   onLinkClick,
   variant = "default",
   className,
+  activeClassName,
 }: AuthNavigationProps) {
+  const pathname = usePathname();
   const router = useRouter();
 
   const { user, isLoggedIn, fetchCurrentUser, logout } = useAuthStore();
@@ -124,10 +128,14 @@ export default function AuthNavigation({
 
   if (variant === "nav") {
     if (!isLoggedIn) return null;
+    const isActive = pathname === "/profile";
 
     return (
       <li>
-        <Link href="/profile" className={className}>
+        <Link
+          href="/profile"
+          className={`${className ?? ""} ${isActive ? (activeClassName ?? "") : ""}`.trim()}
+        >
           My profile
         </Link>
       </li>
@@ -159,7 +167,11 @@ export default function AuthNavigation({
         </div>
       ) : (
         <div className={css.unauthenticated}>
-          <Link href="/login" onClick={onLinkClick} className={css.loginBtn}>
+          <Link
+            href="/login"
+            onClick={onLinkClick}
+            className={`${css.loginBtn} ${pathname === "/login" ? css.active : ""}`}
+          >
             Log in
           </Link>
 

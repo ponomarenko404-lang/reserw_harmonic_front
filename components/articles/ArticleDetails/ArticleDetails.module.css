@@ -81,6 +81,7 @@
 
 .content {
   min-width: 0;
+  overflow-wrap: anywhere;
   font-size: 16px;
   line-height: 1.5;
 }
