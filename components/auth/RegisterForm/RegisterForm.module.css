@@ -66,8 +66,9 @@
   color: var(--black);
 
   font-family: var(--font-family);
-  font-size: 14px;
-  line-height: 1;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.55;
 
   outline: none;
 
@@ -133,6 +134,16 @@
 .passwordIcon {
   fill: none;
   stroke: currentColor;
+}
+
+.passwordButton:hover {
+  opacity: 0.7;
+}
+
+.passwordButton:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 /* =========================

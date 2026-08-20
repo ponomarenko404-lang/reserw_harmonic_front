@@ -149,6 +149,7 @@ export default function RegisterForm() {
                   type="button"
                   className={styles.passwordButton}
                   onClick={() => setShowPassword(!showPassword)}
+                  aria-label={showPassword ? "Hide password" : "Show password"}
                 >
                   <svg className={styles.passwordIcon} aria-hidden="true">
                     <use
