@@ -79,19 +79,26 @@
 
   box-sizing: border-box;
 
-  transition: border-color 150ms ease;
+  transition:
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.input:-webkit-autofill,
+.input:-webkit-autofill:hover,
+.input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--black);
+  -webkit-box-shadow: 0 0 0 1000px var(--light-green) inset;
+  box-shadow: 0 0 0 1000px var(--white) inset;
 }
 
 .input::placeholder {
   color: var(--gray);
 }
 
-.input:hover {
-  border-color: var(--green);
-}
-
 .input:focus {
   border-color: var(--green);
+  box-shadow: 0 0 0 2px rgb(100 145 121 / 15%);
 }
 
 /* PASSWORD */
@@ -104,6 +111,15 @@
 
 .passwordInput {
   padding-right: 40px;
+}
+
+.passwordWrapper input::-ms-reveal,
+.passwordWrapper input::-ms-clear {
+  display: none;
+}
+
+.passwordWrapper input::-webkit-credentials-auto-fill-button {
+  display: none;
 }
 
 /* EYE */
@@ -194,12 +210,13 @@
 .registerLink {
   color: var(--black);
 
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
 .registerLink:hover {
+  color: var(--green);
   text-decoration: none;
 }
 
