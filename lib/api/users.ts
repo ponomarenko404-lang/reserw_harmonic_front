@@ -44,7 +44,9 @@ export async function getUserArticles(
 }
 
 export async function getCurrentUser() {
-  const response = await apiFetch("/api/users/me");
+  const response = await fetch(`${API_URL}/users/me`, {
+    credentials: "include",
+  });
 
   const data = await response.json().catch(() => null);
 

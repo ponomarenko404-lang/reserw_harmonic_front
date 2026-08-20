@@ -2,7 +2,7 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import type { User } from "@/types/user";
-import { getCurrentUser } from "@/lib/api/users";
+import { getUserById } from "@/lib/api/users";
 
 interface AuthState {
   user: User | null;
@@ -38,13 +38,19 @@ export const useAuthStore = create<AuthState>()(
       setLoggedIn: (isLoggedIn) => set({ isLoggedIn }),
 
       fetchCurrentUser: async () => {
+        const currentUser = get().user;
+
+        if (!currentUser?._id) {
+          return;
+        }
+
         set({
           isLoading: true,
           error: null,
         });
 
         try {
-          const freshUserData = await getCurrentUser();
+          const freshUserData = await getUserById(currentUser._id);
 
           const cleanUser =
             freshUserData && "user" in freshUserData
