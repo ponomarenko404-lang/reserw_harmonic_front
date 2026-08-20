@@ -1,2 +1,20 @@
-.tabs { display: flex; flex-wrap: wrap; gap: 12px; padding-block: 24px; }
-.tabs a { padding: 10px 20px; border: 1px solid var(--green-darker); border-radius: var(--radius-pill); }
+.tabs {
+  display: flex;
+  gap: 38px;
+  margin-top: 28px;
+}
+.tabs a {
+  padding-bottom: 6px;
+  color: var(--green-darker);
+  font-size: 16px;
+  font-weight: 700;
+}
+.tabs .active {
+  border-bottom: 1px solid var(--green-darker);
+}
+
+@media screen and (min-width: 768px) {
+  .tabs {
+    margin-top: 24px;
+  }
+}

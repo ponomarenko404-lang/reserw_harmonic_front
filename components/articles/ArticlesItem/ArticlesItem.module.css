@@ -112,15 +112,12 @@
 @media screen and (max-width: 767px) {
   .card {
     width: 100%;
-    min-width: 0;
-    height: 492px;
   }
 }
 
 @media screen and (min-width: 768px) {
   .card {
     width: 340px;
-    height: 492px;
     padding: 12px;
     border-radius: 32px;
   }

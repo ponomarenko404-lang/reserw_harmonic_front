@@ -21,6 +21,12 @@
   animation: spin 800ms linear infinite;
 }
 
+.sm {
+  width: 20px;
+  height: 20px;
+  border-width: 3px;
+}
+
 .visuallyHidden {
   position: absolute;
   width: 1px;
