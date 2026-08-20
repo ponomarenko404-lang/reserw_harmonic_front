@@ -48,8 +48,9 @@ export default function AuthorsPage() {
                 type="button"
                 onClick={() => fetchNextPage()}
                 className={styles.loadMoreBtn}
+                disabled={isFetchingNextPage}
               >
-                Load more
+                {isFetchingNextPage ? "Loading..." : "Load more"}
               </button>
             </div>
           )}

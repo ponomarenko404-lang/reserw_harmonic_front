@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import toast from "react-hot-toast";
 import ArticlesItem from "@/components/articles/ArticlesItem/ArticlesItem";
 import Button from "@/components/common/Button/Button";
@@ -19,7 +19,6 @@ type ArticlesListProps = {
 
 export default function ArticlesList({ source }: ArticlesListProps) {
   const userId = useAuthStore((state) => state.user?._id ?? "");
-  const listRef = useRef<HTMLUListElement>(null);
   const userArticlesQuery = useUserArticles(userId, ARTICLES_PER_PAGE);
   const savedArticlesQuery = useSavedArticles(ARTICLES_PER_PAGE);
   const query = source === "my" ? userArticlesQuery : savedArticlesQuery;
@@ -68,17 +67,11 @@ export default function ArticlesList({ source }: ArticlesListProps) {
     );
   }
 
-  const loadMore = async () => {
-    const result = await fetchNextPage();
-
-    if (result.isSuccess) {
-      listRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
+  const loadMore = () => fetchNextPage();
 
   return (
     <>
-      <ul ref={listRef} className={styles.list}>
+      <ul className={styles.list}>
         {articles.map((article) => (
           <li key={article._id}>
             <ArticlesItem article={article} />
