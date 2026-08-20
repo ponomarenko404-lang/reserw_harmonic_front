@@ -77,13 +77,7 @@ export default async function ArticleRecommendations({
         </ul>
       </div>
 
-      {/* <ButtonAddToBookmarks articleId={article._id} showLabel fullWidth /> */}
-      <ButtonAddToBookmarks
-        key={article._id}
-        articleId={article._id}
-        showLabel
-        fullWidth
-      />
+      <ButtonAddToBookmarks articleId={article._id} showLabel fullWidth />
     </section>
   );
 }
