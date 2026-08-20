@@ -53,16 +53,18 @@ export default function ArticlesList({ source }: ArticlesListProps) {
 
   if (articles.length === 0) {
     return (
-      <EmptyState
-        title="Nothing found."
-        description={
-          source === "my"
-            ? "Write your first article"
-            : "Save your first article"
-        }
-        actionLabel={source === "my" ? "Create an article" : "Go to articles"}
-        actionHref={source === "my" ? "/articles/create" : "/articles"}
-      />
+      <div className={styles.emptyState}>
+        <EmptyState
+          title="Nothing found."
+          description={
+            source === "my"
+              ? "Write your first article"
+              : "Save your first article"
+          }
+          actionLabel={source === "my" ? "Create an article" : "Go to articles"}
+          actionHref={source === "my" ? "/articles/create" : "/articles"}
+        />
+      </div>
     );
   }
 

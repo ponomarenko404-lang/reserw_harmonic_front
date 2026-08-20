@@ -2,8 +2,7 @@
   min-height: 100%;
 }
 .main {
-  min-height: calc(100vh - 62px);
-  padding-block: 32px 56px;
+  padding-top: 32px;
 }
 .title {
   margin-bottom: 28px;
@@ -13,8 +12,7 @@
 
 @media screen and (min-width: 768px) {
   .main {
-    min-height: calc(100vh - 74px);
-    padding-block: 56px 96px;
+    padding-top: 56px;
   }
   .title {
     margin-bottom: 24px;
@@ -24,6 +22,6 @@
 
 @media screen and (min-width: 1440px) {
   .main {
-    padding-block: 52px 96px;
+    padding-top: 52px;
   }
 }

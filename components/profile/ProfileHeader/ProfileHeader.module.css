@@ -16,6 +16,7 @@
 }
 
 .avatar {
+  display: grid;
   position: relative;
   width: 136px;
   height: 136px;
@@ -25,6 +26,8 @@
   border: 0;
   background: var(--light-green);
   color: var(--black);
+  place-items: center;
+  text-align: center;
 }
 
 .avatar img {
