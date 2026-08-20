@@ -98,10 +98,19 @@
   }
 
   .joinBtn {
-    /* padding-top: 13px !important;
-    padding-bottom: 13px !important; */
+    color: var(--white);
+    background-color: var(--green);
+    border-radius: 64px;
+
     padding: 12px 16px;
     line-height: 1.25;
+    font-weight: 700;
+    font-size: 16px;
+  }
+
+  .joinBtn:not(:disabled):hover,
+  .joinBtn:not(:disabled):active {
+    background-color: var(--green-darker);
   }
 
   .createBtnWrapper {
@@ -124,13 +133,38 @@
   }
 
   .loginBtn {
-    border: none !important;
-    background-color: transparent;
+    position: relative;
+    display: inline-block;
+    padding: 13px 0;
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--green-darker);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+  }
 
-    padding-top: 13px !important;
-    padding-bottom: 13px !important;
-    line-height: normal !important;
-    overflow: visible !important;
+  .loginBtn::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 4px;
+    left: 0;
+    height: 2px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 200ms ease;
+  }
+
+  .loginBtn:hover::after,
+  .loginBtn:focus-visible::after {
+    transform: scaleX(1);
+  }
+  .loginBtn:hover,
+  .loginBtn:focus {
+    color: var(--green);
   }
 
   .createBtnWrapper {
