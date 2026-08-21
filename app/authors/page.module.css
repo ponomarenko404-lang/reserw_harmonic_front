@@ -3,10 +3,6 @@
   background-color: var(--white);
 }
 
-.main {
-  padding-block: 40px 64px;
-}
-
 .customContainer {
   padding: 0 !important;
 }
