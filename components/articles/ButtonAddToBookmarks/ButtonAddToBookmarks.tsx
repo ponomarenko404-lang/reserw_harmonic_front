@@ -25,7 +25,8 @@ export default function ButtonAddToBookmarks({
 }: ButtonAddToBookmarksProps) {
   const user = useAuthStore((state) => state.user);
   const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
-  const fetchCurrentUser = useAuthStore((state) => state.fetchCurrentUser);
+  // const fetchCurrentUser = useAuthStore((state) => state.fetchCurrentUser);
+  const setArticleSaved = useAuthStore((state) => state.setArticleSaved);
   const isSaved =
     user?.savedArticles?.some(
       (savedArticleId) => String(savedArticleId) === articleId,
@@ -45,13 +46,22 @@ export default function ButtonAddToBookmarks({
     try {
       setIsLoading(true);
 
+      // if (isSaved) {
+      //   await removeArticleFromBookmarks(articleId);
+      //   await fetchCurrentUser();
+      //   toast.success("Article removed from saved articles");
+      // } else {
+      //   await addArticleToBookmarks(articleId);
+      //   await fetchCurrentUser();
+      //   toast.success("Article saved");
+      // }
       if (isSaved) {
         await removeArticleFromBookmarks(articleId);
-        await fetchCurrentUser();
+        setArticleSaved(articleId, false);
         toast.success("Article removed from saved articles");
       } else {
         await addArticleToBookmarks(articleId);
-        await fetchCurrentUser();
+        setArticleSaved(articleId, true);
         toast.success("Article saved");
       }
     } catch (error) {
@@ -61,13 +71,22 @@ export default function ButtonAddToBookmarks({
           return;
         }
 
+        // if (error.status === 409) {
+        //   await fetchCurrentUser();
+        //   return;
+        // }
+
+        // if (error.status === 404 && isSaved) {
+        //   await fetchCurrentUser();
+        //   return;
+        // }
         if (error.status === 409) {
-          await fetchCurrentUser();
+          setArticleSaved(articleId, true);
           return;
         }
 
         if (error.status === 404 && isSaved) {
-          await fetchCurrentUser();
+          setArticleSaved(articleId, false);
           return;
         }
       }

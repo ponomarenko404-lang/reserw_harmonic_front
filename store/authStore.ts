@@ -12,6 +12,7 @@ interface AuthState {
 
   setUser: (user: User | { user: User } | null) => void;
   setLoggedIn: (isLoggedIn: boolean) => void;
+  setArticleSaved: (articleId: string, isSaved: boolean) => void;
   fetchCurrentUser: () => Promise<void>;
   logout: () => void;
 }
@@ -36,6 +37,26 @@ export const useAuthStore = create<AuthState>()(
       },
 
       setLoggedIn: (isLoggedIn) => set({ isLoggedIn }),
+
+      setArticleSaved: (articleId, isSaved) =>
+        set((state) => {
+          if (!state.user) {
+            return state;
+          }
+
+          const savedArticles = (state.user.savedArticles ?? []).map(String);
+
+          const nextSavedArticles = isSaved
+            ? Array.from(new Set([...savedArticles, articleId]))
+            : savedArticles.filter((savedId) => savedId !== articleId);
+
+          return {
+            user: {
+              ...state.user,
+              savedArticles: nextSavedArticles,
+            },
+          };
+        }),
 
       fetchCurrentUser: async () => {
         const currentUser = get().user;

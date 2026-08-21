@@ -74,7 +74,10 @@ export default function ArticlesList({ source }: ArticlesListProps) {
       <ul className={styles.list}>
         {articles.map((article) => (
           <li key={article._id}>
-            <ArticlesItem article={article} />
+            <ArticlesItem
+              article={article}
+              action={source === "my" ? "edit" : "bookmark"}
+            />
           </li>
         ))}
       </ul>

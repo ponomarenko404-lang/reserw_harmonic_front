@@ -10,15 +10,19 @@
 // };
 export type Category = "popular" | "general";
 
-export type ArticleOwner =
-  | string
-  | null
-  | {
-      _id: string;
-      name: string;
-      avatarUrl?: string;
-    };
-
+// export type ArticleOwner =
+//   | string
+//   | null
+//   | {
+//       _id: string;
+//       name: string;
+//       avatarUrl?: string;
+//     };
+export type ArticleOwner = {
+  _id: string;
+  name: string;
+  avatarUrl?: string;
+};
 export type Article = {
   _id: string;
   title: string;
@@ -28,7 +32,8 @@ export type Article = {
   rate: number;
   date: string;
   category: Category;
-  ownerId: ArticleOwner;
+  ownerId: string | null;
+  owner: ArticleOwner | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -79,9 +84,5 @@ export type ArticleDetails = {
   rate: number;
   date: string;
   category: Category;
-  owner: {
-    _id: string;
-    name: string;
-    avatarUrl?: string;
-  } | null;
+  owner: ArticleOwner | null;
 };

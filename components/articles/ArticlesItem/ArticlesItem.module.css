@@ -108,7 +108,42 @@
   color: var(--white);
   box-shadow: 0 0 0 2px #ffffff;
 }
+.editLink {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border: 1px solid var(--green-darker);
+  border-radius: var(--radius-pill);
+  background-color: transparent;
+  color: var(--green-darker);
+  cursor: pointer;
+  transition:
+    color 200ms ease,
+    background-color 200ms ease,
+    border-color 200ms ease;
+}
 
+.editLink:hover {
+  border-color: var(--green-darker);
+  background-color: var(--green-darker);
+  color: var(--white);
+}
+
+.editLink:focus-visible {
+  outline: 2px solid var(--green-darker);
+  outline-offset: 2px;
+}
+
+.actionIcon {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+}
 @media screen and (max-width: 767px) {
   .card {
     width: 100%;
