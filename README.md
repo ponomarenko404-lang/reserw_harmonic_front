@@ -1,36 +1,150 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Harmonic
 
-## Getting Started
+Сучасний вебзастосунок для пошуку, читання та збереження статей про здоровий і гармонійний спосіб життя.
 
-First, run the development server:
+## 📖 Про проєкт
+
+**Reserw Harmonic** — це командний вебзастосунок, створений з використанням **Next.js, React та TypeScript**.
+
+Застосунок дозволяє користувачам переглядати статті, шукати потрібний контент, створювати обліковий запис, авторизуватися, керувати профілем і зберігати статті для подальшого перегляду.
+
+Проєкт розроблявся командою з фокусом на адаптивний дизайн, повторне використання компонентів, чистий код та сучасні підходи до frontend-розробки.
+
+## ✨ Основний функціонал
+
+* 🔐 Реєстрація та авторизація користувачів
+* 👤 Особистий профіль
+* 🖼️ Аватар користувача з дефолтним зображенням
+* 📰 Перегляд статей
+* 🔎 Пошук статей
+* ❤️ Збереження статей в обране
+* 📱 Адаптивний дизайн
+* 🎨 Сучасний та зручний інтерфейс
+* ⚡ Швидка навігація завдяки Next.js
+* 🔄 Керування станом на клієнті
+* 🛡️ Валідація форм та обробка помилок
+
+## 🛠️ Технології
+
+### Frontend
+
+* **Next.js**
+* **React**
+* **TypeScript**
+* **CSS Modules**
+* **Axios**
+* **Zustand**
+* **React Hook Form**
+* **Next/Image**
+
+### Інструменти розробки
+
+* **Git**
+* **GitHub**
+* **Vercel**
+* **ESLint**
+* **Prettier**
+* **REST API**
+
+## 🚀 Запуск проєкту
+
+### 1. Клонувати репозиторій
+
+```bash
+git clone https://github.com/ponomarenko404-lang/reserw_harmonic_front.git
+```
+
+### 2. Перейти до папки проєкту
+
+```bash
+cd reserw_harmonic_front
+```
+
+### 3. Встановити залежності
+
+```bash
+npm install
+```
+
+### 4. Налаштувати змінні середовища
+
+Створіть файл `.env.local` у кореневій папці проєкту.
+
+Додайте необхідні змінні:
+
+```env
+NEXT_PUBLIC_API_URL=your_api_url
+```
+
+Використовуйте значення змінних середовища, надані командою проєкту.
+
+### 5. Запустити проєкт
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Після запуску застосунок буде доступний за адресою:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🔐 Авторизація
 
-## Learn More
+Застосунок підтримує:
 
-To learn more about Next.js, take a look at the following resources:
+* Реєстрацію
+* Вхід в обліковий запис
+* Вихід з облікового запису
+* Отримання поточного користувача
+* Захищений функціонал
+* Керування профілем
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Стан авторизації на клієнті керується за допомогою Zustand та взаємодіє з backend API.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 👤 Профіль користувача
 
-## Deploy on Vercel
+Зареєстровані користувачі можуть переглядати свій профіль та керувати персональною інформацією.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Якщо користувач не має власного аватара, автоматично відображається дефолтне зображення.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📱 Адаптивний дизайн
+
+Застосунок адаптований для різних типів пристроїв:
+
+* Мобільні пристрої
+* Планшети
+* Десктопи
+
+Інтерфейс відповідає дизайн-макетам проєкту та використовує повторно використовувані адаптивні компоненти.
+
+## 👥 Командна розробка
+
+**Reserw Harmonic** — командний проєкт, розроблений із використанням **Git та GitHub**.
+
+У процесі розробки використовувалися:
+
+* Feature branches
+* Pull Requests
+* Code review
+* Розподіл завдань між учасниками команди
+* Інтеграція готового функціоналу через Pull Requests
+* Об'єднання завершених функцій у гілку `main`
+
+Кожен учасник команди працював над окремими функціональними частинами проєкту, після чого зміни інтегрувалися через Pull Requests.
+
+## 🌐 Live Demo
+
+Застосунок розгорнуто на Vercel.
+
+[Переглянути застосунок](https://reserw-harmonic-front.vercel.app/)
+
+## 📌 Репозиторій
+
+[GitHub Repository](https://github.com/ponomarenko404-lang/reserw_harmonic_front)
+
+## 📄 Ліцензія
+
+Проєкт створено в навчальних та портфоліо-цілях як командний проєкт.
+
