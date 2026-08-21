@@ -2,12 +2,13 @@
   min-height: 100%;
 }
 .main {
-  padding-top: 32px;
+  padding-top: 22px;
 }
 .title {
-  margin-bottom: 28px;
+  margin-bottom: 24px;
+  font-weight: 700;
   font-size: 40px;
-  line-height: 1.2;
+  color: #000;
 }
 
 @media screen and (min-width: 768px) {

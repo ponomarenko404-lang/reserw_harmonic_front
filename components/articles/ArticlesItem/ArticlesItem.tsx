@@ -13,9 +13,13 @@ type ArticleItemData = {
 
 type ArticlesItemProps = {
   article: ArticleItemData;
+  action?: "bookmark" | "edit";
 };
 
-export default function ArticlesItem({ article }: ArticlesItemProps) {
+export default function ArticlesItem({
+  article,
+  action = "bookmark",
+}: ArticlesItemProps) {
   return (
     <article className={styles.card}>
       <div className={styles.imageWrapper}>
@@ -49,7 +53,20 @@ export default function ArticlesItem({ article }: ArticlesItemProps) {
           Learn more
         </Link>
 
-        <ButtonAddToBookmarks articleId={article._id} />
+        {action === "edit" ? (
+          <Link
+            className={styles.editLink}
+            href={`/articles/${article._id}/edit`}
+            aria-label={`Edit article: ${article.title}`}
+            title="Edit article"
+          >
+            <svg className={styles.actionIcon} aria-hidden="true">
+              <use href="/icons/sprite.svg#icon-update" />
+            </svg>
+          </Link>
+        ) : (
+          <ButtonAddToBookmarks articleId={article._id} />
+        )}
       </div>
     </article>
   );
