@@ -56,11 +56,8 @@ export default function ProfileHeader({
 
       const updatedUser = await updateAvatar(file);
 
-      if (user && updatedUser?.avatarUrl) {
-        setUser({
-          ...user,
-          avatarUrl: updatedUser.avatarUrl,
-        });
+      if (updatedUser?.avatarUrl) {
+        setUser(updatedUser);
       } else {
         throw new Error("The server did not return the uploaded photo");
       }
