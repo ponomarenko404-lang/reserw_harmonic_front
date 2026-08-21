@@ -51,7 +51,7 @@
 }
 
 .loader > * {
-  transform: scale(0.5);
+  transform: none;
 }
 .fullWidth {
   box-sizing: border-box;

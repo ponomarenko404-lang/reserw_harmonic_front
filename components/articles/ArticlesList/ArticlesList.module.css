@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 24px;
+  margin-bottom: 46px;
 }
 .list > li {
   scroll-margin-top: 78px;

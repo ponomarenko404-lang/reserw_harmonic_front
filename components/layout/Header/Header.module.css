@@ -1,4 +1,5 @@
 .header {
+  --header-height: 63px;
   /* position: fixed; */
   position: sticky;
   top: 0;
@@ -40,6 +41,10 @@
    TABLET (768px +)
    ========================== */
 @media screen and (min-width: 768px) {
+  .header {
+    --header-height: 74px;
+  }
+
   .tabletAction {
     display: block;
   }
