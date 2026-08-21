@@ -30,7 +30,7 @@ export default function ProfileHeader({
   const avatar =
     avatarUrlFromUser && avatarUrlFromUser !== "https://goit.global"
       ? avatarUrlFromUser
-      : undefined;
+      : "/images/default-avatar.png";
   const ownArticlesCount =
     userArticlesQuery.data?.pages[0]?.pagination.totalItems;
   const savedArticlesCount =
@@ -83,10 +83,10 @@ export default function ProfileHeader({
         disabled={isUploading}
         aria-label="Change avatar"
       >
-        {avatar ? (
-          <Image src={avatar} alt="User avatar" fill sizes="136px" />
+        {isUploading ? (
+          <span>...</span>
         ) : (
-          <span>{isUploading ? "..." : "User avatar"}</span>
+          <Image src={avatar} alt="User avatar" fill sizes="136px" />
         )}
       </button>
 

@@ -8,12 +8,17 @@ interface AuthorsItemProps {
 }
 
 export default function AuthorsItem({ author }: AuthorsItemProps) {
+  const avatar =
+    author.avatarUrl && author.avatarUrl !== "https://goit.global"
+      ? author.avatarUrl
+      : "/images/default-avatar.png";
+
   return (
     <Link href={`/authors/${author.id}`} className={styles.cardLink}>
       <article className={styles.card}>
         <div className={styles.imageWrapper}>
           <Image
-            src={author.avatarUrl || "/default-avatar.png"}
+            src={avatar}
             alt={`Profile photo of ${author.name}`}
             width={148}
             height={148}
