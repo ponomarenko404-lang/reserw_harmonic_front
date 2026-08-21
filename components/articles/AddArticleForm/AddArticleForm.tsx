@@ -63,10 +63,15 @@ export default function AddArticleForm() {
 
         try {
           const result = await createArticle(formData);
+          const articleId = result?.data?._id ?? result?._id;
+
+          if (!articleId) {
+            throw new Error("Article was created but its ID was not returned");
+          }
 
           toast.success("Article created successfully!");
 
-          router.push(`/articles/${result.data._id}`);
+          router.push(`/articles/${articleId}`);
         } catch (error) {
           console.error("Create article error:", error);
 
