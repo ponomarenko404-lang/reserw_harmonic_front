@@ -12,7 +12,6 @@ export default function UploadForm() {
   const inputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
 
-  const user = useAuthStore((state) => state.user);
   const setUser = useAuthStore((state) => state.setUser);
 
   const [preview, setPreview] = useState<string | null>(null);
@@ -57,18 +56,15 @@ export default function UploadForm() {
 
       const updatedUser = await updateAvatar(file);
 
-      if (user) {
-        setUser({
-          ...user,
-          avatarUrl: updatedUser.avatarUrl,
-        });
-      }
+      setUser(updatedUser);
 
       router.push("/profile");
     } catch (error) {
       console.error("Failed to upload avatar:", error);
+
       const message =
         error instanceof Error ? error.message : "Failed to upload photo";
+
       setError(message);
     } finally {
       setIsUploading(false);
@@ -113,6 +109,8 @@ export default function UploadForm() {
           <Image
             src={preview}
             alt="Avatar preview"
+            width={136}
+            height={136}
             className={css.avatarImage}
           />
         ) : (
