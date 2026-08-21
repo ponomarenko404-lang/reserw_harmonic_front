@@ -1,6 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import ButtonAddToBookmarks from "../ButtonAddToBookmarks/ButtonAddToBookmarks";
-import { getArticles } from "@/lib/api/articles";
+import { getArticleById, getArticles } from "@/lib/api/articles";
 import type { ArticleDetails } from "@/types/article";
 import styles from "./ArticleRecommendations.module.css";
 
@@ -16,9 +17,21 @@ export default async function ArticleRecommendations({
     perPage: 4,
   });
 
-  const recommendations = response.data
+  const recommendationArticles = response.data
     .filter((item) => item._id !== article._id)
     .slice(0, 3);
+
+  const recommendations = await Promise.all(
+    recommendationArticles.map(async (recommendation) => {
+      try {
+        const details = await getArticleById(recommendation._id);
+
+        return { ...recommendation, owner: details.owner };
+      } catch {
+        return recommendation;
+      }
+    }),
+  );
 
   const parsedDate = article.date ? new Date(article.date) : null;
 
@@ -62,15 +75,18 @@ export default async function ArticleRecommendations({
                     {recommendation.title}
                   </strong>
 
-                  {/* <span className={styles.cardAuthor}>Автор невідомий</span> */}
                   <span className={styles.cardAuthor}>
                     {recommendation.owner?.name ?? "Автор невідомий"}
                   </span>
                 </span>
 
-                <span className={styles.arrow} aria-hidden="true">
-                  ↗
-                </span>
+                <Image
+                  className={styles.arrow}
+                  src="/icons/arrow.svg"
+                  alt=""
+                  width={40}
+                  height={40}
+                />
               </Link>
             </li>
           ))}
