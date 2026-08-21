@@ -12,6 +12,7 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3001/api";
 
 type RawArticle = Partial<Article & ArticleDetails> & {
   photo?: string;
+  image?: string;
   desc?: string;
   content?: string;
   category?: Category;
@@ -20,7 +21,7 @@ type RawArticle = Partial<Article & ArticleDetails> & {
 const mapArticle = (article: RawArticle): Article & ArticleDetails => ({
   ...article,
   _id: article._id ?? "",
-  img: article.img ?? article.photo ?? "",
+  img: article.img ?? article.image ?? article.photo ?? "",
   title: article.title ?? "",
   desc: article.desc ?? "",
   article: article.article ?? article.content ?? "",
@@ -107,6 +108,31 @@ export async function createArticle(formData: FormData) {
   return response.json();
 }
 
+export async function updateArticle(articleId: string, formData: FormData) {
+  const url = `/api/articles/${articleId}`;
+  let response = await apiFetch(url, {
+    method: "PATCH",
+    body: formData,
+  });
+
+  if (response.status === 405) {
+    response = await apiFetch(url, {
+      method: "PUT",
+      body: formData,
+    });
+  }
+
+  if (!response.ok) {
+    const errorData = await response.json().catch(() => null);
+
+    throw new Error(
+      errorData?.message || `Failed to update article: ${response.status}`,
+    );
+  }
+
+  return response.json();
+}
+
 export class ArticlesApiError extends Error {
   status: number;
 
@@ -122,6 +148,7 @@ export async function getArticleById(
 ): Promise<ArticleDetails> {
   const response = await fetch(`${API_URL}/articles/${articleId}`, {
     credentials: "include",
+    cache: "no-store",
   });
 
   const data = await response.json().catch(() => null);

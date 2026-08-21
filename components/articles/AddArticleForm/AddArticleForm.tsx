@@ -4,11 +4,12 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useQueryClient } from "@tanstack/react-query";
 import * as Yup from "yup";
 import toast from "react-hot-toast";
-import { createArticle } from "@/lib/api/articles";
+import { createArticle, updateArticle } from "@/lib/api/articles";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import type { InputEvent } from "react";
 import Image from "next/image";
+import type { ArticleDetails } from "@/types/article";
 import styles from "./AddArticleForm.module.css";
 
 const validationSchema = Yup.object({
@@ -24,30 +25,37 @@ const validationSchema = Yup.object({
     .max(4000, "Article must be at most 4000 characters")
     .required("Article is required"),
 
-  photo: Yup.mixed<File>()
-    .required("Photo is required")
-    .test(
-      "fileSize",
-      "Photo must be no larger than 1 MB",
-      (value) => !value || value.size <= 1024 * 1024,
-    ),
+  photo: Yup.mixed<File>().test(
+    "fileSize",
+    "Photo must be no larger than 1 MB",
+    (value) => !value || value.size <= 1024 * 1024,
+  ),
 });
 
-export default function AddArticleForm() {
+type AddArticleFormProps = {
+  initialArticle?: ArticleDetails;
+};
+
+export default function AddArticleForm({
+  initialArticle,
+}: AddArticleFormProps) {
   const router = useRouter();
   const queryClient = useQueryClient();
-  const [preview, setPreview] = useState<string | null>(null);
+  const isEditMode = Boolean(initialArticle);
+  const [preview, setPreview] = useState<string | null>(
+    initialArticle?.img ?? null,
+  );
 
   return (
     <Formik
       initialValues={{
-        title: "",
-        description: "",
+        title: initialArticle?.title ?? "",
+        description: initialArticle?.article ?? "",
         photo: null as File | null,
       }}
       validationSchema={validationSchema}
       onSubmit={async (values) => {
-        if (!values.photo) {
+        if (!isEditMode && !values.photo) {
           toast.error("Photo is required");
           return;
         }
@@ -57,30 +65,53 @@ export default function AddArticleForm() {
         formData.append("title", values.title.trim());
         formData.append("article", values.description.trim());
 
-        // Backend expects "img"
-        formData.append("img", values.photo);
+        if (isEditMode) {
+          if (values.photo) {
+            formData.append("photo", values.photo);
+          } else if (initialArticle?.img) {
+            formData.append("photo", initialArticle.img);
+          }
+        } else if (values.photo) {
+          formData.append("img", values.photo);
+        }
 
-        // Default article category
-        formData.append("category", "general");
+        if (!isEditMode) {
+          formData.append("category", "general");
+        }
 
         try {
-          const result = await createArticle(formData);
-          const articleId = result?.data?._id ?? result?._id;
+          const result = initialArticle
+            ? await updateArticle(initialArticle._id, formData)
+            : await createArticle(formData);
+          const articleId =
+            result?.data?._id ?? result?._id ?? initialArticle?._id;
 
           if (!articleId) {
-            throw new Error("Article was created but its ID was not returned");
+            throw new Error("Article ID was not returned");
           }
 
           await queryClient.invalidateQueries({ queryKey: ["userArticles"] });
 
-          toast.success("Article created successfully!");
+          toast.success(
+            isEditMode
+              ? "Article updated successfully!"
+              : "Article created successfully!",
+          );
 
           router.push(`/articles/${articleId}`);
+          router.refresh();
         } catch (error) {
-          console.error("Create article error:", error);
+          console.error(
+            isEditMode ? "Update article error:" : "Create article error:",
+            error,
+          );
 
           toast.error(
-            error instanceof Error ? error.message : "Failed to create article",
+            error instanceof Error
+              ? error.message
+              : isEditMode
+                ? "Failed to update article"
+                : "Failed to create article",
           );
         }
       }}
@@ -174,7 +205,13 @@ export default function AddArticleForm() {
             className={styles.button}
             disabled={isSubmitting}
           >
-            {isSubmitting ? "Publishing..." : "Publish article"}
+            {isSubmitting
+              ? isEditMode
+                ? "Updating..."
+                : "Publishing..."
+              : isEditMode
+                ? "Update article"
+                : "Publish article"}
           </button>
         </Form>
       )}
