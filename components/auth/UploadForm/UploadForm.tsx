@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useRef, useState, ChangeEvent, FormEvent } from "react";
@@ -6,7 +7,6 @@ import Button from "@/components/common/Button/Button";
 import { updateAvatar } from "@/lib/api/users";
 import { useAuthStore } from "@/store/authStore";
 import css from "./UploadForm.module.css";
-import Image from "next/image";
 
 export default function UploadForm() {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -21,6 +21,7 @@ export default function UploadForm() {
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files?.[0];
+
     if (!selectedFile) return;
 
     setError(null);
@@ -39,7 +40,7 @@ export default function UploadForm() {
   };
 
   const handleSkip = () => {
-    router.push("/");
+    router.push("/profile");
   };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -106,7 +107,7 @@ export default function UploadForm() {
 
       <label htmlFor="avatar-upload" className={css.avatarLabel}>
         {preview ? (
-          <Image
+          <img
             src={preview}
             alt="Avatar preview"
             width={136}
@@ -121,6 +122,7 @@ export default function UploadForm() {
               viewBox="0 0 98 82"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
             >
               <path
                 strokeWidth="3"
@@ -142,7 +144,11 @@ export default function UploadForm() {
       <Button
         type="submit"
         disabled={!file || isUploading}
-        className={`${css.buttonSave} ${!file || isUploading ? css.buttonDisabled : css.buttonActive}`}
+        className={`${css.buttonSave} ${
+          !file || isUploading
+            ? css.buttonDisabled
+            : css.buttonActive
+        }`}
       >
         {isUploading ? "Uploading..." : "Save"}
       </Button>
