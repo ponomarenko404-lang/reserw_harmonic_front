@@ -54,7 +54,9 @@
   transform: scale(0.5);
 }
 .fullWidth {
+  box-sizing: border-box;
   width: 100%;
+  align-self: stretch;
   height: 57px;
   gap: 8px;
   margin-top: 16px;
