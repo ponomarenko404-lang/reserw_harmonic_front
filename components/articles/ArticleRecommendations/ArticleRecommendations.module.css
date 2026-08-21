@@ -52,7 +52,10 @@
 
 .cardText {
   display: grid;
+  width: calc(100% - 56px);
+  min-width: 0;
   gap: 8px;
+  overflow-wrap: anywhere;
 }
 
 .cardTitle {
