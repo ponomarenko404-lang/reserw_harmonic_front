@@ -3,7 +3,7 @@
   flex-direction: column;
   width: 100%;
   min-height: 360px;
-  padding: 24px;
+  padding: 48px 32px;
   border-radius: 32px;
   background-color: var(--light-green);
 }
@@ -49,10 +49,8 @@
 }
 
 .label {
-  font-family: var(--font-family);
   font-size: 12px;
   font-weight: 400;
-  line-height: 1.2;
   color: var(--black);
 }
 
@@ -68,8 +66,9 @@
   color: var(--black);
 
   font-family: var(--font-family);
-  font-size: 14px;
-  line-height: 1;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.55;
 
   outline: none;
 
@@ -86,7 +85,7 @@
   box-shadow: 0 0 0 1000px var(--white) inset;
 }
 .input::placeholder {
-  color: var(--light-gray);
+  color: var(--gray);
 }
 
 .input:focus {
@@ -127,14 +126,19 @@
   border: 0;
 
   background: transparent;
-  color: var(--gray);
+  color: var(--black);
 
   transform: translateY(-50%);
 }
 
-.passwordIcon {
-  fill: none;
-  stroke: currentColor;
+.passwordButton:hover {
+  opacity: 0.7;
+}
+
+.passwordButton:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 /* =========================
@@ -218,6 +222,7 @@
 
 .loginLink:hover {
   color: var(--green);
+  text-decoration: none;
 }
 
 /* =========================
@@ -228,7 +233,6 @@
   .form {
     width: 522px;
     min-height: 432px;
-    padding: 48px 32px;
     margin: 0 auto;
   }
 }
@@ -241,9 +245,5 @@
   .form {
     width: 392px;
     min-height: 632px;
-  }
-
-  .passwordWrapper .input {
-    padding-right: 32px;
   }
 }
