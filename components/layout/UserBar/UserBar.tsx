@@ -10,6 +10,8 @@ type UserBarProps = {
   onLogoutClick: () => void;
 };
 
+const DEFAULT_AVATAR = "/images/default-avatar.png";
+
 export default function UserBar({ onLogoutClick }: UserBarProps) {
   const fetchCurrentUser = useAuthStore((state) => state.fetchCurrentUser);
   const user = useAuthStore((state) => state.user);
@@ -23,14 +25,17 @@ export default function UserBar({ onLogoutClick }: UserBarProps) {
   }, [user?._id, fetchCurrentUser]);
 
   const name = user?.name || "User";
-  const avatarUrl = user?.avatarUrl;
-  const firstLetter = name.charAt(0).toUpperCase() || "U";
+
+  const avatarUrl =
+    user?.avatarUrl && user.avatarUrl !== "https://goit.global"
+      ? user.avatarUrl
+      : DEFAULT_AVATAR;
 
   return (
     <div className={styles.userBar}>
       <Link href="/profile" className={styles.profileLink}>
         <span className={styles.avatar}>
-          {avatarUrl && !imageError ? (
+          {!imageError ? (
             <Image
               src={avatarUrl}
               alt={name}
@@ -41,7 +46,13 @@ export default function UserBar({ onLogoutClick }: UserBarProps) {
               onError={() => setImageError(true)}
             />
           ) : (
-            <span className={styles.avatarLetter}>{firstLetter}</span>
+            <Image
+              src={DEFAULT_AVATAR}
+              alt={name}
+              width={32}
+              height={32}
+              className={styles.avatarImg}
+            />
           )}
         </span>
 
