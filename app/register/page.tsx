@@ -18,9 +18,7 @@ export default function RegisterPage() {
   return (
     <section className={styles.main}>
       <Container>
-        <div className={styles.loginWrapper}>
           <RegisterForm />
-        </div>
       </Container>
     </section>
   );
