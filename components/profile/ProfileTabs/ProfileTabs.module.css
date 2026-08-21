@@ -4,6 +4,8 @@
   margin-top: 28px;
 }
 .tabs a {
+  display: inline-flex;
+  gap: 4px;
   padding-bottom: 6px;
   color: var(--green-darker);
   font-size: 16px;

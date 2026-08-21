@@ -25,7 +25,7 @@
 .backdrop {
   position: fixed;
   z-index: 1000;
-  inset: 62px 0 0;
+  inset: var(--header-height) 0 0;
   overflow: hidden;
   background-color: rgb(7 7 33 / 40%);
 }
@@ -78,7 +78,7 @@
     display: block;
   }
   .backdrop {
-    inset: 74px 0 0;
+    inset: var(--header-height) 0 0;
   }
   .menu {
     gap: 32px;
