@@ -1,6 +1,7 @@
 "use client";
 
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { useQueryClient } from "@tanstack/react-query";
 import * as Yup from "yup";
 import toast from "react-hot-toast";
 import { createArticle } from "@/lib/api/articles";
@@ -34,6 +35,7 @@ const validationSchema = Yup.object({
 
 export default function AddArticleForm() {
   const router = useRouter();
+  const queryClient = useQueryClient();
   const [preview, setPreview] = useState<string | null>(null);
 
   return (
@@ -68,6 +70,8 @@ export default function AddArticleForm() {
           if (!articleId) {
             throw new Error("Article was created but its ID was not returned");
           }
+
+          await queryClient.invalidateQueries({ queryKey: ["userArticles"] });
 
           toast.success("Article created successfully!");
 

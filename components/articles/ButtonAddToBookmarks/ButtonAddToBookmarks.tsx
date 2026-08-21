@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import Loader from "@/components/common/Loader/Loader";
 import {
@@ -27,6 +28,7 @@ export default function ButtonAddToBookmarks({
   const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
   // const fetchCurrentUser = useAuthStore((state) => state.fetchCurrentUser);
   const setArticleSaved = useAuthStore((state) => state.setArticleSaved);
+  const queryClient = useQueryClient();
   const isSaved =
     user?.savedArticles?.some(
       (savedArticleId) => String(savedArticleId) === articleId,
@@ -58,10 +60,12 @@ export default function ButtonAddToBookmarks({
       if (isSaved) {
         await removeArticleFromBookmarks(articleId);
         setArticleSaved(articleId, false);
+        await queryClient.invalidateQueries({ queryKey: ["savedArticles"] });
         toast.success("Article removed from saved articles");
       } else {
         await addArticleToBookmarks(articleId);
         setArticleSaved(articleId, true);
+        await queryClient.invalidateQueries({ queryKey: ["savedArticles"] });
         toast.success("Article saved");
       }
     } catch (error) {
@@ -82,11 +86,13 @@ export default function ButtonAddToBookmarks({
         // }
         if (error.status === 409) {
           setArticleSaved(articleId, true);
+          await queryClient.invalidateQueries({ queryKey: ["savedArticles"] });
           return;
         }
 
         if (error.status === 404 && isSaved) {
           setArticleSaved(articleId, false);
+          await queryClient.invalidateQueries({ queryKey: ["savedArticles"] });
           return;
         }
       }
@@ -119,6 +125,7 @@ export default function ButtonAddToBookmarks({
           <span className={styles.loader}>
             <Loader
               fullScreen={false}
+              size="sm"
               label={isSaved ? "Removing article" : "Saving article"}
             />
           </span>
