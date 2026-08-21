@@ -1,3 +1,7 @@
+.main{
+  padding: 48px;
+}
+
 .page {
   width: 100%;
   background-color: var(--white);

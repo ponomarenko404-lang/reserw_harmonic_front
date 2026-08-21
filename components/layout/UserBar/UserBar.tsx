@@ -26,10 +26,8 @@ export default function UserBar({ onLogoutClick }: UserBarProps) {
 
   const name = user?.name || "User";
 
-  const avatarUrl =
-    user?.avatarUrl && user.avatarUrl !== "https://goit.global"
-      ? user.avatarUrl
-      : DEFAULT_AVATAR;
+  const avatarUrl = user?.avatarUrl || DEFAULT_AVATAR;
+
 
   return (
     <div className={styles.userBar}>
