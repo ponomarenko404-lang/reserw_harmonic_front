@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { DM_Sans, Manrope, Noto_Sans } from "next/font/google";
 import { QueryProvider } from "@/providers/QueryProvider";
 import "./globals.css";
+import styles from "./layout.module.css";
 import Header from "@/components/layout/Header/Header";
 import Footer from "@/components/layout/Footer/Footer";
 import AuthProvider from "@/components/AuthProvider/AuthProvider";
@@ -41,9 +42,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body>
         <QueryProvider>
           <AuthProvider>
-            <Header />
-            {children}
-            <Footer />
+            <div className={styles.page}>
+              <Header />
+
+              <main className={styles.content}>{children}</main>
+
+              <Footer />
+            </div>
           </AuthProvider>
         </QueryProvider>
       </body>

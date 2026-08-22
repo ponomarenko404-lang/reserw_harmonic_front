@@ -6,12 +6,16 @@ import css from "./Header.module.css";
 import AuthNavigation from "@/components/AuthNavigation/AuthNavigation";
 import Logo from "@/components/common/Logo/Logo";
 import NavLinks from "./NavLinks";
+import ThemeToggle from "@/components/common/ThemeToggle/ThemeToggle";
 
 export default function Header() {
   return (
     <header className={css.header}>
       <Container className="container">
-        <Logo />
+         <div className={css.logoControls}>
+          <Logo />
+          <ThemeToggle />
+        </div>
 
         <nav aria-label="Main Navigation">
           <ul className={css.navigation}>
