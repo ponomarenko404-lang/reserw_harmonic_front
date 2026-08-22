@@ -23,6 +23,18 @@
   --third-family: var(--font-noto-sans), sans-serif;
 }
 
+[data-theme="dark"] {
+  --green: #8fbea3;
+  --black: #f5f7f6;
+  --light-green: #263a31;
+  --red: #d8898c;
+  --purple: #9b9df5;
+  --white: #121816;
+  --green-darker: #b8d6c5;
+  --gray: #b5bdb9;
+  --light-gray: #7f8984;
+}
+
 html {
   height: 100%;
 }
