@@ -1,45 +1,36 @@
-import { useInfiniteQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import type { IAuthor } from "@/types/author";
 
 interface FetchAuthorsResponse {
-  page: number;
-  perPage: number;
-  totalItems: number;
-  totalPages: number;
-  hasPreviousPage: boolean;
-  hasNextPage: boolean;
+  success: boolean;
   authors: IAuthor[];
+  pagination: {
+    totalAuthors: number;
+    totalPages: number;
+    currentPage: number;
+    perPage: number;
+    hasNextPage: boolean;
+  };
 }
 
-interface InfiniteAuthorsResult {
-  data: IAuthor[];
-  nextPage: number | null;
-}
+const AUTHORS_PER_PAGE = 20;
 
-const LIMIT = 20;
+async function fetchAuthors(page: number): Promise<FetchAuthorsResponse> {
+  const response = await fetch(
+  `https://reserw-harmonic-back.onrender.com/api/users?page=${page}&limit=${AUTHORS_PER_PAGE}`,
+);
 
-const fetchAuthorsRequest = async ({
-  pageParam = 1,
-}): Promise<InfiniteAuthorsResult> => {
-  const res = await fetch(`/api/authors?page=${pageParam}&limit=${LIMIT}`);
-
-  if (!res.ok) {
+  if (!response.ok) {
     throw new Error("Failed to fetch authors");
   }
 
-  const responseData: FetchAuthorsResponse = await res.json();
+  return response.json();
+}
 
-  return {
-    data: responseData.authors || [],
-    nextPage: responseData.hasNextPage ? responseData.page + 1 : null,
-  };
-};
-
-export function useInfiniteAuthors() {
-  return useInfiniteQuery({
-    queryKey: ["authors", "list", LIMIT],
-    queryFn: fetchAuthorsRequest,
-    initialPageParam: 1,
-    getNextPageParam: (lastPage) => lastPage.nextPage,
+export function useAuthors(page: number) {
+  return useQuery({
+    queryKey: ["authors", page],
+    queryFn: () => fetchAuthors(page),
+    placeholderData: (previousData) => previousData,
   });
 }
