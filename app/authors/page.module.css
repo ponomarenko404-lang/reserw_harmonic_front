@@ -20,7 +20,7 @@
   font-size: 40px;
   line-height: 1.2;
 
-  color: #000;
+  color: var(--black);;
 }
 
 .description {

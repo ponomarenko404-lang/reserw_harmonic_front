@@ -4,12 +4,19 @@ import { useEffect, useState } from "react";
 import css from "./ThemeToggle.module.css";
 
 export default function ThemeToggle() {
-  const [isDark, setIsDark] = useState(
-    () => typeof window !== "undefined" && localStorage.getItem("theme") === "dark",
-  );
+  const [isDark, setIsDark] = useState(() => {
+    if (typeof window === "undefined") {
+      return false;
+    }
+
+    return localStorage.getItem("theme") === "dark";
+  });
 
   useEffect(() => {
-    document.documentElement.setAttribute("data-theme", isDark ? "dark" : "light");
+    document.documentElement.setAttribute(
+      "data-theme",
+      isDark ? "dark" : "light",
+    );
   }, [isDark]);
 
   const toggleTheme = () => {
@@ -19,8 +26,8 @@ export default function ThemeToggle() {
 
     const theme = newIsDark ? "dark" : "light";
 
-    document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
+    document.documentElement.setAttribute("data-theme", theme);
   };
 
   return (
