@@ -55,6 +55,46 @@
   transform: scale(0.98);
 }
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 40px;
+  padding: 0;
+  list-style: none;
+}
+
+.pageItem,
+.previous,
+.next {
+  cursor: pointer;
+}
+
+.pageItem a,
+.previous a,
+.next a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+}
+
+.active a {
+  background-color: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
 @media screen and (min-width: 1440px) {
   .loadMoreBtn {
     width: 390px; /* Ширина для комп'ютера з Figma */
