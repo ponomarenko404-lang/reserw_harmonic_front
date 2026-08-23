@@ -1,21 +1,21 @@
 "use client";
 
-import { useSearchParams, useRouter } from "next/navigation";
-import ReactPaginate from "react-paginate";
-
-import { useAuthors } from "@/lib/query/useAuthors";
+import { useInfiniteAuthors } from "@/lib/query/useAuthors";
 import AuthorsList from "@/components/authors/AuthorsList/AuthorsList";
 import Container from "@/components/common/Container/Container";
 import Loader from "@/components/common/Loader/Loader";
 import styles from "./page.module.css";
 
 export default function AuthorsPageContent() {
-  const searchParams = useSearchParams();
-  const router = useRouter();
-
-  const page = Number(searchParams.get("page")) || 1;
-
-  const { data, isLoading, isFetching, isError, error } = useAuthors(page);
+  const {
+    data,
+    isLoading,
+    isFetchingNextPage,
+    hasNextPage,
+    fetchNextPage,
+    isError,
+    error,
+  } = useInfiniteAuthors();
 
   if (isError) {
     return (
@@ -27,20 +27,25 @@ export default function AuthorsPageContent() {
     );
   }
 
-  const authors = data?.authors ?? [];
-  const sortedAuthors = [...authors].sort((a, b) => {
-    const firstAuthorArticlesAmount = a.articles?.length ?? a.articlesAmount;
-    const secondAuthorArticlesAmount = b.articles?.length ?? b.articlesAmount;
+  const authors = Array.from(
+    new Map(
+      (data?.pages.flatMap((page) => page.authors) ?? []).map((author) => [
+        author._id,
+        author,
+      ]),
+    ).values(),
+  );
+
+  const sortedAuthors = authors.sort((firstAuthor, secondAuthor) => {
+    const firstAuthorArticlesAmount =
+      firstAuthor.articles?.length ?? firstAuthor.articlesAmount;
+    const secondAuthorArticlesAmount =
+      secondAuthor.articles?.length ?? secondAuthor.articlesAmount;
 
     return secondAuthorArticlesAmount - firstAuthorArticlesAmount;
   });
-  const totalPages = data?.pagination?.totalPages ?? 0;
 
-  const handlePageChange = ({ selected }: { selected: number }) => {
-    const newPage = selected + 1;
-
-    router.push(`/authors?page=${newPage}`);
-  };
+  const handleLoadMore = () => fetchNextPage();
 
   return (
     <div className={styles.page}>
@@ -54,25 +59,15 @@ export default function AuthorsPageContent() {
             <AuthorsList authors={sortedAuthors} />
           )}
 
-          {isFetching && !isLoading && (
-            <Loader fullScreen={false} label="Loading authors..." />
-          )}
-
-          {totalPages > 1 && (
-            <ReactPaginate
-              pageCount={totalPages}
-              forcePage={page - 1}
-              onPageChange={handlePageChange}
-              previousLabel="←"
-              nextLabel="→"
-              breakLabel="..."
-              containerClassName={styles.pagination}
-              pageClassName={styles.pageItem}
-              previousClassName={styles.previous}
-              nextClassName={styles.next}
-              activeClassName={styles.active}
-              disabledClassName={styles.disabled}
-            />
+          {hasNextPage && (
+            <button
+              type="button"
+              className={styles.loadMore}
+              onClick={handleLoadMore}
+              disabled={isFetchingNextPage}
+            >
+              {isFetchingNextPage ? "Loading..." : "Load More"}
+            </button>
           )}
         </Container>
       </section>

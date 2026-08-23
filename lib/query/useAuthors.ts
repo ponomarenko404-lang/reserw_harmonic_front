@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import type { IAuthor } from "@/types/author";
 
 interface FetchAuthorsResponse {
@@ -32,5 +32,18 @@ export function useAuthors(page: number) {
     queryKey: ["authors", page],
     queryFn: () => fetchAuthors(page),
     placeholderData: (previousData) => previousData,
+  });
+}
+
+export function useInfiniteAuthors() {
+  return useInfiniteQuery({
+    queryKey: ["authors-infinite"],
+    queryFn: ({ pageParam }) => fetchAuthors(pageParam),
+    initialPageParam: 1,
+    getNextPageParam: (lastPage) => {
+      const { currentPage, totalPages } = lastPage.pagination;
+
+      return currentPage < totalPages ? currentPage + 1 : undefined;
+    },
   });
 }
