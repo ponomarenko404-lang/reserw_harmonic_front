@@ -3,7 +3,8 @@ import { NextResponse } from "next/server";
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3001/api";
 
 type BackendAuthor = {
-  _id: string;
+  _id?: string;
+  id?: string;
   name: string;
   avatarUrl?: string;
   articlesAmount?: number;
@@ -41,7 +42,7 @@ export async function GET(request: Request) {
 
     const authors = Array.isArray(data?.authors)
       ? data.authors.map((author: BackendAuthor) => ({
-          _id: author._id,
+          _id: author._id ?? author.id ?? "",
           name: author.name,
           avatarUrl: author.avatarUrl ?? "",
           articlesAmount: author.articlesAmount ?? author.articles?.length ?? 0,
