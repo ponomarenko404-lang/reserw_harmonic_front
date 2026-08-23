@@ -21,15 +21,19 @@ export default function AuthorsPageContent() {
     return (
       <div className={styles.page}>
         <Container className={styles.customContainer}>
-          <p className={styles.error}>
-            Error: {error?.message}
-          </p>
+          <p className={styles.error}>Error: {error?.message}</p>
         </Container>
       </div>
     );
   }
 
   const authors = data?.authors ?? [];
+  const sortedAuthors = [...authors].sort((a, b) => {
+    const firstAuthorArticlesAmount = a.articles?.length ?? a.articlesAmount;
+    const secondAuthorArticlesAmount = b.articles?.length ?? b.articlesAmount;
+
+    return secondAuthorArticlesAmount - firstAuthorArticlesAmount;
+  });
   const totalPages = data?.pagination?.totalPages ?? 0;
 
   const handlePageChange = ({ selected }: { selected: number }) => {
@@ -45,19 +49,13 @@ export default function AuthorsPageContent() {
           <h1 className={styles.title}>Authors</h1>
 
           {isLoading ? (
-            <Loader
-              fullScreen={false}
-              label="Loading authors..."
-            />
+            <Loader fullScreen={false} label="Loading authors..." />
           ) : (
-            <AuthorsList authors={authors} />
+            <AuthorsList authors={sortedAuthors} />
           )}
 
           {isFetching && !isLoading && (
-            <Loader
-              fullScreen={false}
-              label="Loading authors..."
-            />
+            <Loader fullScreen={false} label="Loading authors..." />
           )}
 
           {totalPages > 1 && (

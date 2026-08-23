@@ -2,6 +2,14 @@ import { NextResponse } from "next/server";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3001/api";
 
+type BackendAuthor = {
+  _id: string;
+  name: string;
+  avatarUrl?: string;
+  articlesAmount?: number;
+  articles?: unknown[];
+};
+
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
@@ -31,13 +39,15 @@ export async function GET(request: Request) {
       );
     }
 
-    const authors = data.authors.map(
-      (author: { _id: string; name: string; avatarUrl?: string }) => ({
-        id: author._id,
-        name: author.name,
-        avatarUrl: author.avatarUrl ?? "",
-      }),
-    );
+    const authors = Array.isArray(data?.authors)
+      ? data.authors.map((author: BackendAuthor) => ({
+          _id: author._id,
+          name: author.name,
+          avatarUrl: author.avatarUrl ?? "",
+          articlesAmount: author.articlesAmount ?? author.articles?.length ?? 0,
+          articles: author.articles ?? [],
+        }))
+      : [];
 
     return NextResponse.json({
       ...data,

@@ -17,8 +17,8 @@ const AUTHORS_PER_PAGE = 20;
 
 async function fetchAuthors(page: number): Promise<FetchAuthorsResponse> {
   const response = await fetch(
-  `https://reserw-harmonic-back.onrender.com/api/users?page=${page}&limit=${AUTHORS_PER_PAGE}`,
-);
+    `/api/authors?page=${page}&limit=${AUTHORS_PER_PAGE}`,
+  );
 
   if (!response.ok) {
     throw new Error("Failed to fetch authors");
