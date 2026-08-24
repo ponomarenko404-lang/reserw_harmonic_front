@@ -23,7 +23,9 @@ export default function ArticleDetails({
           className={styles.image}
           src={article.img}
           alt={article.title}
-          fill
+          width={0}
+          height={0}
+          quality={100}
           priority
           sizes="(max-width: 767px) 100vw, 1225px"
         />

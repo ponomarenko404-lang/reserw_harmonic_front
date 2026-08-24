@@ -18,6 +18,7 @@
   flex-shrink: 0;
   overflow: hidden;
   border-radius: 24px;
+  background-color: var(--white);
 }
 
 .image {

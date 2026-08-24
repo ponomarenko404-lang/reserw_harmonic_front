@@ -11,15 +11,16 @@
 }
 
 .imageWrapper {
-  position: relative;
   width: 100%;
-  aspect-ratio: 1225 / 624;
-  overflow: hidden;
   border-radius: 32px;
+  background-color: var(--white);
+  overflow: hidden;
 }
 
 .image {
-  object-fit: cover;
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .layout {
