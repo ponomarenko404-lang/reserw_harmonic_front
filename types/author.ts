@@ -1,5 +1,9 @@
+import type { Article } from "./article";
+
 export interface IAuthor {
-  id: string;
+  _id: string;
   name: string;
   avatarUrl: string;
+  articlesAmount: number;
+  articles?: Article[];
 }

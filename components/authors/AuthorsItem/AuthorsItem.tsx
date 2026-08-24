@@ -14,7 +14,7 @@ export default function AuthorsItem({ author }: AuthorsItemProps) {
       : "/images/default-avatar.png";
 
   return (
-    <Link href={`/authors/${author.id}`} className={styles.cardLink}>
+    <Link href={`/authors/${author._id}`} className={styles.cardLink}>
       <article className={styles.card}>
         <div className={styles.imageWrapper}>
           <Image

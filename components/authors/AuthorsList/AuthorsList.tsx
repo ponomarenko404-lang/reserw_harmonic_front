@@ -20,7 +20,7 @@ export default function AuthorsList({ authors = [] }: AuthorsListProps) {
   return (
     <ul className={styles.list} role="list">
       {authors.map((author) => (
-        <li key={author.id} className={styles.item}>
+        <li key={author._id} className={styles.item}>
           <AuthorsItem author={author} />
         </li>
       ))}
