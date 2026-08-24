@@ -1,18 +1,16 @@
+"use client";
+
+import { useTopAuthors } from "@/lib/query/useAuthors";
 import Container from "@/components/common/Container/Container";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./Creators.module.css";
 
-const creators = [
-  { name: "Naomi", avatar: "/images/Naomi-1.webp" },
-  { name: "Andrii", avatar: "/images/Andrii-2.webp" },
-  { name: "Emma", avatar: "/images/Emma-3.webp" },
-  { name: "Max", avatar: "/images/Max-4.webp" },
-  { name: "Tony", avatar: "/images/Tony-5.webp" },
-  { name: "Taylor", avatar: "/images/Taylor-6.webp" },
-];
+const DEFAULT_AVATAR = "/images/default-avatar.png";
 
 export default function Creators() {
+  const { data: creators = [], isLoading } = useTopAuthors();
+
   return (
     <section className={styles.section} id="top-creators">
       <Container>
@@ -29,21 +27,33 @@ export default function Creators() {
         </div>
 
         <ul className={styles.list}>
-          {creators.map((creator) => (
-            <li className={styles.creator} key={creator.name}>
-              <div className={styles.avatar}>
-                <Image
-                  src={creator.avatar}
-                  alt={`Profile photo of ${creator.name}`}
-                  fill
-                  sizes="148px"
-                  className={styles.avatarImage}
+          {isLoading
+            ? Array.from({ length: 6 }, (_, index) => (
+                <li
+                  className={styles.creator}
+                  key={`creator-skeleton-${index}`}
                 />
-              </div>
+              ))
+            : creators.map((creator) => (
+                <li className={styles.creator} key={creator._id}>
+                  <Link
+                    href={`/authors/${creator._id}`}
+                    className={styles.avatar}
+                  >
+                    <Image
+                      src={creator.avatarUrl || DEFAULT_AVATAR}
+                      alt={`Profile photo of ${creator.name}`}
+                      fill
+                      sizes="148px"
+                      className={styles.avatarImage}
+                    />
+                  </Link>
 
-              <span className={styles.creatorName}>{creator.name}</span>
-            </li>
-          ))}
+                  <span className={styles.creatorName}>
+                    {creator.name.trim().split(/\s+/)[0]}
+                  </span>
+                </li>
+              ))}
         </ul>
       </Container>
     </section>

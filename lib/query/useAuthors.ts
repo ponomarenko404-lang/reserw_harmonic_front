@@ -15,10 +15,11 @@ interface FetchAuthorsResponse {
 
 const AUTHORS_PER_PAGE = 20;
 
-async function fetchAuthors(page: number): Promise<FetchAuthorsResponse> {
-  const response = await fetch(
-    `/api/authors?page=${page}&limit=${AUTHORS_PER_PAGE}`,
-  );
+async function fetchAuthors(
+  page: number,
+  limit = AUTHORS_PER_PAGE,
+): Promise<FetchAuthorsResponse> {
+  const response = await fetch(`/api/authors?page=${page}&limit=${limit}`);
 
   if (!response.ok) {
     throw new Error("Failed to fetch authors");
@@ -32,6 +33,29 @@ export function useAuthors(page: number) {
     queryKey: ["authors", page],
     queryFn: () => fetchAuthors(page),
     placeholderData: (previousData) => previousData,
+  });
+}
+
+export function useTopAuthors() {
+  return useQuery({
+    queryKey: ["top-authors"],
+    queryFn: async () => {
+      const firstPage = await fetchAuthors(1);
+      const remainingPages = await Promise.all(
+        Array.from(
+          { length: firstPage.pagination.totalPages - 1 },
+          (_, index) => fetchAuthors(index + 2),
+        ),
+      );
+      const authors = [firstPage, ...remainingPages]
+        .flatMap((page) => page.authors)
+        .sort(
+          (firstAuthor, secondAuthor) =>
+            secondAuthor.articlesAmount - firstAuthor.articlesAmount,
+        );
+
+      return authors.slice(0, 6);
+    },
   });
 }
 
