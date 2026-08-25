@@ -28,10 +28,8 @@ export async function getUserArticles(
   });
 
   const response = await fetch(
-    `${API_URL}/users/${userId}/articles?${searchParams.toString()}`,
-    {
-      credentials: "include",
-    },
+    `/api/users/${userId}/articles?${searchParams.toString()}`,
+    { credentials: "include" },
   );
 
   const data = await response.json().catch(() => null);
