@@ -18,7 +18,7 @@ export default function Footer() {
                 <Link href="/articles">Articles</Link>
               </li>
               <li>
-                <Link href="/profile">Account</Link>
+                <Link href="/login">Account</Link>
               </li>
             </ul>
           </nav>
