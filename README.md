@@ -1,30 +1,31 @@
-# Harmonic
+# Harmoniq
 
-Сучасний вебзастосунок для пошуку, читання та збереження статей про здоровий і гармонійний спосіб життя.
+A modern web application for discovering, reading, and saving articles about a healthy and harmonious lifestyle.
 
-## 📖 Про проєкт
+## 📖 About the Project
 
-**Reserw Harmonic** — це командний вебзастосунок, створений з використанням **Next.js, React та TypeScript**.
+**Harmoniq** is a team web application built with **Next.js, React, and TypeScript**.
 
-Застосунок дозволяє користувачам переглядати статті, шукати потрібний контент, створювати обліковий запис, авторизуватися, керувати профілем і зберігати статті для подальшого перегляду.
+The application allows users to browse and search for articles, create an account, authenticate, manage their profile, and save articles for later reading.
 
-Проєкт розроблявся командою з фокусом на адаптивний дизайн, повторне використання компонентів, чистий код та сучасні підходи до frontend-розробки.
+The project was developed as a team with a focus on responsive design, reusable components, clean code, and modern frontend development practices.
 
-## ✨ Основний функціонал
+## ✨ Features
 
-* 🔐 Реєстрація та авторизація користувачів
-* 👤 Особистий профіль
-* 🖼️ Аватар користувача з дефолтним зображенням
-* 📰 Перегляд статей
-* 🔎 Пошук статей
-* ❤️ Збереження статей в обране
-* 📱 Адаптивний дизайн
-* 🎨 Сучасний та зручний інтерфейс
-* ⚡ Швидка навігація завдяки Next.js
-* 🔄 Керування станом на клієнті
-* 🛡️ Валідація форм та обробка помилок
+* 🔐 User registration and authentication
+* 👤 User profile
+* 🖼️ User avatar with a default image
+* 📰 Article browsing
+* 🔎 Article search
+* ❤️ Saving articles to favorites
+* 📱 Responsive design
+* 🎨 Modern and user-friendly interface
+* ⚡ Fast navigation with Next.js
+* 🔄 Client-side state management
+* 🛡️ Form validation and error handling
+* 🌙 Dark mode
 
-## 🛠️ Технології
+## 🛠️ Tech Stack
 
 ### Frontend
 
@@ -37,114 +38,88 @@
 * **React Hook Form**
 * **Next/Image**
 
-### Інструменти розробки
+### Backend
+
+* **Node.js**
+* **Express**
+* **MongoDB**
+* **Mongoose**
+* **REST API**
+* **Joi**
+* **Celebrate**
+
+### Development Tools
 
 * **Git**
 * **GitHub**
 * **Vercel**
 * **ESLint**
 * **Prettier**
-* **REST API**
 
-## 🚀 Запуск проєкту
+## 🔐 Authentication
 
-### 1. Клонувати репозиторій
+The application supports:
 
-```bash
-git clone https://github.com/ponomarenko404-lang/reserw_harmonic_front.git
-```
+* User registration
+* Login
+* Logout
+* Current user authentication
+* Protected functionality
+* Profile management
 
-### 2. Перейти до папки проєкту
+Client-side authentication state is managed with **Zustand** and integrated with the backend API.
 
-```bash
-cd reserw_harmonic_front
-```
+## 👤 User Profile
 
-### 3. Встановити залежності
+Registered users can view and manage their personal profile information.
 
-```bash
-npm install
-```
+Users can also upload a personal avatar. If no avatar is provided, a default image is displayed.
 
-### 4. Налаштувати змінні середовища
+## 📱 Responsive Design
 
-Створіть файл `.env.local` у кореневій папці проєкту.
+The application is fully responsive and adapted for:
 
-Додайте необхідні змінні:
+* Mobile devices
+* Tablets
+* Desktop screens
 
-```env
-NEXT_PUBLIC_API_URL=your_api_url
-```
+The interface follows the project's design layouts and uses reusable responsive components.
 
-Використовуйте значення змінних середовища, надані командою проєкту.
+## 🌙 Dark Mode
 
-### 5. Запустити проєкт
+The application includes a dark mode that allows users to switch between light and dark themes for a more comfortable browsing experience.
 
-```bash
-npm run dev
-```
+## 👥 Team Development
 
-Після запуску застосунок буде доступний за адресою:
+**Harmoniq** was developed as a team project using **Git and GitHub**.
 
-```text
-http://localhost:3000
-```
-
-## 🔐 Авторизація
-
-Застосунок підтримує:
-
-* Реєстрацію
-* Вхід в обліковий запис
-* Вихід з облікового запису
-* Отримання поточного користувача
-* Захищений функціонал
-* Керування профілем
-
-Стан авторизації на клієнті керується за допомогою Zustand та взаємодіє з backend API.
-
-## 👤 Профіль користувача
-
-Зареєстровані користувачі можуть переглядати свій профіль та керувати персональною інформацією.
-
-Якщо користувач не має власного аватара, автоматично відображається дефолтне зображення.
-
-## 📱 Адаптивний дизайн
-
-Застосунок адаптований для різних типів пристроїв:
-
-* Мобільні пристрої
-* Планшети
-* Десктопи
-
-Інтерфейс відповідає дизайн-макетам проєкту та використовує повторно використовувані адаптивні компоненти.
-
-## 👥 Командна розробка
-
-**Reserw Harmonic** — командний проєкт, розроблений із використанням **Git та GitHub**.
-
-У процесі розробки використовувалися:
+The development workflow included:
 
 * Feature branches
 * Pull Requests
-* Code review
-* Розподіл завдань між учасниками команди
-* Інтеграція готового функціоналу через Pull Requests
-* Об'єднання завершених функцій у гілку `main`
+* Code reviews
+* Task distribution between team members
+* Integration of completed features through Pull Requests
+* Merging completed features into the `main` branch
 
-Кожен учасник команди працював над окремими функціональними частинами проєкту, після чого зміни інтегрувалися через Pull Requests.
+Each team member was responsible for specific functional parts of the application, which were later integrated into the main project.
 
 ## 🌐 Live Demo
 
-Застосунок розгорнуто на Vercel.
+The application is deployed on Vercel.
 
-[Переглянути застосунок](https://reserw-harmonic-front.vercel.app/)
+**Frontend:**
+https://reserw-harmonic-front.vercel.app/
 
-## 📌 Репозиторій
+## 📌 Repositories
 
-[GitHub Repository](https://github.com/ponomarenko404-lang/reserw_harmonic_front)
+**Frontend:**
+https://github.com/ponomarenko404-lang/reserw_harmonic_front
 
-## 📄 Ліцензія
+**Backend:**
+https://github.com/ponomarenko404-lang/reserw_harmonic_back
 
-Проєкт створено в навчальних та портфоліо-цілях як командний проєкт.
+## 📄 License
+
+This project was created for educational and portfolio purposes as a team project.
 
